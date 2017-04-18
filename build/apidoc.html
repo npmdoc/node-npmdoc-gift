@@ -1,0 +1,4585 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/notatestuser/gift"
+
+    >gift (v0.10.0)</a>
+</h1>
+<h4>a Git wrapper library</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gift">module gift</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.gift">
+            function <span class="apidocSignatureSpan"></span>gift
+            <span class="apidocSignatureSpan">(path, bare, git_options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.actor">
+            function <span class="apidocSignatureSpan">gift.</span>actor
+            <span class="apidocSignatureSpan">(name1, email1)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.blob">
+            function <span class="apidocSignatureSpan">gift.</span>blob
+            <span class="apidocSignatureSpan">(repo, attrs)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.clone">
+            function <span class="apidocSignatureSpan">gift.</span>clone
+            <span class="apidocSignatureSpan">(repository, path, depth, branch, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.commit">
+            function <span class="apidocSignatureSpan">gift.</span>commit
+            <span class="apidocSignatureSpan">(repo1, id1, parents, tree, author1, authored_date1, committer1, committed_date1, gpgsig1, message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.config">
+            function <span class="apidocSignatureSpan">gift.</span>config
+            <span class="apidocSignatureSpan">(repo, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.diff">
+            function <span class="apidocSignatureSpan">gift.</span>diff
+            <span class="apidocSignatureSpan">(repo1, a_path1, b_path1, a_blob, b_blob, a_mode1, b_mode1, new_file1, deleted_file1, diff1, renamed_file1, similarity_index )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.git">
+            function <span class="apidocSignatureSpan">gift.</span>git
+            <span class="apidocSignatureSpan">(git_dir, dot_git, git_options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.init">
+            function <span class="apidocSignatureSpan">gift.</span>init
+            <span class="apidocSignatureSpan">(path, bare, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo">
+            function <span class="apidocSignatureSpan">gift.</span>repo
+            <span class="apidocSignatureSpan">(path, bare, git_options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.status">
+            function <span class="apidocSignatureSpan">gift.</span>status
+            <span class="apidocSignatureSpan">(repo, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.submodule">
+            function <span class="apidocSignatureSpan">gift.</span>submodule
+            <span class="apidocSignatureSpan">(repo1, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.tag">
+            function <span class="apidocSignatureSpan">gift.</span>tag
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.toString">
+            function <span class="apidocSignatureSpan">gift.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.tree">
+            function <span class="apidocSignatureSpan">gift.</span>tree
+            <span class="apidocSignatureSpan">(repo, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">gift.</span>maxBuffer</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gift.</span>actor.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gift.</span>blob.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gift.</span>commit.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gift.</span>diff.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gift.</span>ref</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gift.</span>repo.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gift.</span>submodule.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gift.</span>tag.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gift.</span>tree.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gift.actor">module gift.actor</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.actor.actor">
+            function <span class="apidocSignatureSpan">gift.</span>actor
+            <span class="apidocSignatureSpan">(name1, email1)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.actor.from_string">
+            function <span class="apidocSignatureSpan">gift.actor.</span>from_string
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gift.actor.prototype">module gift.actor.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.actor.prototype.toString">
+            function <span class="apidocSignatureSpan">gift.actor.prototype.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gift.blob">module gift.blob</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.blob.blob">
+            function <span class="apidocSignatureSpan">gift.</span>blob
+            <span class="apidocSignatureSpan">(repo, attrs)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gift.blob.prototype">module gift.blob.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.blob.prototype.data">
+            function <span class="apidocSignatureSpan">gift.blob.prototype.</span>data
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.blob.prototype.dataStream">
+            function <span class="apidocSignatureSpan">gift.blob.prototype.</span>dataStream
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.blob.prototype.toString">
+            function <span class="apidocSignatureSpan">gift.blob.prototype.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gift.clone">module gift.clone</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.clone.clone">
+            function <span class="apidocSignatureSpan">gift.</span>clone
+            <span class="apidocSignatureSpan">(repository, path, depth, branch, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gift.commit">module gift.commit</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.commit.commit">
+            function <span class="apidocSignatureSpan">gift.</span>commit
+            <span class="apidocSignatureSpan">(repo1, id1, parents, tree, author1, authored_date1, committer1, committed_date1, gpgsig1, message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.commit.actor">
+            function <span class="apidocSignatureSpan">gift.commit.</span>actor
+            <span class="apidocSignatureSpan">(line)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.commit.find">
+            function <span class="apidocSignatureSpan">gift.commit.</span>find
+            <span class="apidocSignatureSpan">(repo, id, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.commit.find_all">
+            function <span class="apidocSignatureSpan">gift.commit.</span>find_all
+            <span class="apidocSignatureSpan">(repo, ref, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.commit.find_commits">
+            function <span class="apidocSignatureSpan">gift.commit.</span>find_commits
+            <span class="apidocSignatureSpan">(repo, ids, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.commit.parse_commits">
+            function <span class="apidocSignatureSpan">gift.commit.</span>parse_commits
+            <span class="apidocSignatureSpan">(repo, text)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gift.commit.prototype">module gift.commit.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.commit.prototype.toJSON">
+            function <span class="apidocSignatureSpan">gift.commit.prototype.</span>toJSON
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gift.config">module gift.config</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.config.config">
+            function <span class="apidocSignatureSpan">gift.</span>config
+            <span class="apidocSignatureSpan">(repo, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.config.Config">
+            function <span class="apidocSignatureSpan">gift.config.</span>Config
+            <span class="apidocSignatureSpan">(repo1)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gift.diff">module gift.diff</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.diff.diff">
+            function <span class="apidocSignatureSpan">gift.</span>diff
+            <span class="apidocSignatureSpan">(repo1, a_path1, b_path1, a_blob, b_blob, a_mode1, b_mode1, new_file1, deleted_file1, diff1, renamed_file1, similarity_index )</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.diff.parse">
+            function <span class="apidocSignatureSpan">gift.diff.</span>parse
+            <span class="apidocSignatureSpan">(repo, text)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.diff.parse_raw">
+            function <span class="apidocSignatureSpan">gift.diff.</span>parse_raw
+            <span class="apidocSignatureSpan">(repo, text)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gift.diff.prototype">module gift.diff.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.diff.prototype.toJSON">
+            function <span class="apidocSignatureSpan">gift.diff.prototype.</span>toJSON
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gift.git">module gift.git</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.git.git">
+            function <span class="apidocSignatureSpan">gift.</span>git
+            <span class="apidocSignatureSpan">(git_dir, dot_git, git_options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.git.options_to_argv">
+            function <span class="apidocSignatureSpan">gift.git.</span>options_to_argv
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">gift.git.</span>bin</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gift.init">module gift.init</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.init.init">
+            function <span class="apidocSignatureSpan">gift.</span>init
+            <span class="apidocSignatureSpan">(path, bare, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gift.ref">module gift.ref</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.ref.Head">
+            function <span class="apidocSignatureSpan">gift.ref.</span>Head
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.ref.Ref">
+            function <span class="apidocSignatureSpan">gift.ref.</span>Ref
+            <span class="apidocSignatureSpan">(name1, commit1)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gift.repo">module gift.repo</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.repo">
+            function <span class="apidocSignatureSpan">gift.</span>repo
+            <span class="apidocSignatureSpan">(path, bare, git_options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gift.repo.prototype">module gift.repo.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.add">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>add
+            <span class="apidocSignatureSpan">(files, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.branch">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>branch
+            <span class="apidocSignatureSpan">(name, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.branches">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>branches
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.checkout">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>checkout
+            <span class="apidocSignatureSpan">(treeish, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.checkoutFile">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>checkoutFile
+            <span class="apidocSignatureSpan">(files, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.clean">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>clean
+            <span class="apidocSignatureSpan">(options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.commit">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>commit
+            <span class="apidocSignatureSpan">(message, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.commits">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>commits
+            <span class="apidocSignatureSpan">(start, limit, skip, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.config">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>config
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.create_branch">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>create_branch
+            <span class="apidocSignatureSpan">(name, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.create_tag">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>create_tag
+            <span class="apidocSignatureSpan">(name, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.current_commit">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>current_commit
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.current_commit_id">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>current_commit_id
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.delete_branch">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>delete_branch
+            <span class="apidocSignatureSpan">(name, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.delete_tag">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>delete_tag
+            <span class="apidocSignatureSpan">(name, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.diff">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>diff
+            <span class="apidocSignatureSpan">(commitA, commitB)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.identify">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>identify
+            <span class="apidocSignatureSpan">(actor, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.identity">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>identity
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.ls_files">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>ls_files
+            <span class="apidocSignatureSpan">(files, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.merge">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>merge
+            <span class="apidocSignatureSpan">(name, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.parse_lsFiles">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>parse_lsFiles
+            <span class="apidocSignatureSpan">(text, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.pull">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>pull
+            <span class="apidocSignatureSpan">(remote_name, branch_name, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.remote_add">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>remote_add
+            <span class="apidocSignatureSpan">(name, url, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.remote_add_url">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>remote_add_url
+            <span class="apidocSignatureSpan">(name, url, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.remote_delete_url">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>remote_delete_url
+            <span class="apidocSignatureSpan">(name, url, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.remote_fetch">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>remote_fetch
+            <span class="apidocSignatureSpan">(name, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.remote_list">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>remote_list
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.remote_push">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>remote_push
+            <span class="apidocSignatureSpan">(name, branch, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.remote_remove">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>remote_remove
+            <span class="apidocSignatureSpan">(name, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.remote_set_url">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>remote_set_url
+            <span class="apidocSignatureSpan">(name, url, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.remotes">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>remotes
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.remove">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>remove
+            <span class="apidocSignatureSpan">(files, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.reset">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>reset
+            <span class="apidocSignatureSpan">(treeish, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.revert">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>revert
+            <span class="apidocSignatureSpan">(sha, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.status">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>status
+            <span class="apidocSignatureSpan">(options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.sync">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>sync
+            <span class="apidocSignatureSpan">(remote_name, branch_name, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.tags">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>tags
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.repo.prototype.tree">
+            function <span class="apidocSignatureSpan">gift.repo.prototype.</span>tree
+            <span class="apidocSignatureSpan">(treeish)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gift.status">module gift.status</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.status.status">
+            function <span class="apidocSignatureSpan">gift.</span>status
+            <span class="apidocSignatureSpan">(repo, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.status.Status">
+            function <span class="apidocSignatureSpan">gift.status.</span>Status
+            <span class="apidocSignatureSpan">(repo1)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gift.submodule">module gift.submodule</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.submodule.submodule">
+            function <span class="apidocSignatureSpan">gift.</span>submodule
+            <span class="apidocSignatureSpan">(repo1, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.submodule.config">
+            function <span class="apidocSignatureSpan">gift.submodule.</span>config
+            <span class="apidocSignatureSpan">(repo, treeish, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gift.submodule.prototype">module gift.submodule.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.submodule.prototype.url">
+            function <span class="apidocSignatureSpan">gift.submodule.prototype.</span>url
+            <span class="apidocSignatureSpan">(treeish, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gift.tag">module gift.tag</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.tag.tag">
+            function <span class="apidocSignatureSpan">gift.</span>tag
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.tag.find_all">
+            function <span class="apidocSignatureSpan">gift.tag.</span>find_all
+            <span class="apidocSignatureSpan">(repo, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gift.tag.</span>__super__</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gift.tag.prototype">module gift.tag.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.tag.prototype.constructor">
+            function <span class="apidocSignatureSpan">gift.tag.prototype.</span>constructor
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.tag.prototype.lazy">
+            function <span class="apidocSignatureSpan">gift.tag.prototype.</span>lazy
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.tag.prototype.message">
+            function <span class="apidocSignatureSpan">gift.tag.prototype.</span>message
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.tag.prototype.tag_date">
+            function <span class="apidocSignatureSpan">gift.tag.prototype.</span>tag_date
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.tag.prototype.tagger">
+            function <span class="apidocSignatureSpan">gift.tag.prototype.</span>tagger
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gift.toString">module gift.toString</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.toString.toString">
+            function <span class="apidocSignatureSpan">gift.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gift.tree">module gift.tree</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.tree.tree">
+            function <span class="apidocSignatureSpan">gift.</span>tree
+            <span class="apidocSignatureSpan">(repo, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gift.tree.prototype">module gift.tree.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.tree.prototype.blobs">
+            function <span class="apidocSignatureSpan">gift.tree.prototype.</span>blobs
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.tree.prototype.content_from_string">
+            function <span class="apidocSignatureSpan">gift.tree.prototype.</span>content_from_string
+            <span class="apidocSignatureSpan">(line)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.tree.prototype.contents">
+            function <span class="apidocSignatureSpan">gift.tree.prototype.</span>contents
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.tree.prototype.find">
+            function <span class="apidocSignatureSpan">gift.tree.prototype.</span>find
+            <span class="apidocSignatureSpan">(file, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.tree.prototype.toString">
+            function <span class="apidocSignatureSpan">gift.tree.prototype.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gift.tree.prototype.trees">
+            function <span class="apidocSignatureSpan">gift.tree.prototype.</span>trees
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gift" id="apidoc.module.gift">module gift</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gift.gift" id="apidoc.element.gift.gift">
+        function <span class="apidocSignatureSpan"></span>gift
+        <span class="apidocSignatureSpan">(path, bare, git_options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">gift = function (path, bare, git_options) {
+  if (bare == null) {
+    bare = false;
+  }
+  if (git_options == null) {
+    git_options = {
+      maxBuffer: Git.maxBuffer
+    };
+  }
+  return new Repo(path, bare, git_options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.actor" id="apidoc.element.gift.actor">
+        function <span class="apidocSignatureSpan">gift.</span>actor
+        <span class="apidocSignatureSpan">(name1, email1)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Actor(name1, email1) {
+  this.name = name1;
+  this.email = email1;
+  if (this.email) {
+    this.hash = crypto.createHash(&#x22;md5&#x22;).update(this.email, &#x22;ascii&#x22;).digest(&#x22;hex&#x22;);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+tree = _.last(lines.shift().split(&#x22; &#x22;));
+parents = [];
+while (/^parent/.test(lines[0])) {
+  parents.push(_.last(lines.shift().split(&#x22; &#x22;)));
+}
+author_line = lines.shift();
+ref1 = this.<span class="apidocCodeKeywordSpan">actor</span>(author_line), author = ref1[0], authored_date = ref1[1];
+committer_line = lines.shift();
+ref2 = this.actor(committer_line), committer = ref2[0], committed_date = ref2[1];
+gpgsig = [];
+if (/^gpgsig/.test(lines[0])) {
+  gpgsig.push(lines.shift().replace(/^gpgsig /, &#x27;&#x27;));
+  while (!/^ -----END PGP SIGNATURE-----$/.test(lines[0])) {
+    gpgsig.push(lines.shift());
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.blob" id="apidoc.element.gift.blob">
+        function <span class="apidocSignatureSpan">gift.</span>blob
+        <span class="apidocSignatureSpan">(repo, attrs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Blob(repo, attrs) {
+  this.repo = repo;
+  this.id = attrs.id, this.name = attrs.name, this.mode = attrs.mode;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.clone" id="apidoc.element.gift.clone">
+        function <span class="apidocSignatureSpan">gift.</span>clone
+        <span class="apidocSignatureSpan">(repository, path, depth, branch, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">clone = function (repository, path, depth, branch, callback) {
+  var bash;
+  if (depth == null) {
+    depth = 0;
+  }
+  if (branch == null) {
+    branch = null;
+  }
+  if (typeof branch === &#x27;function&#x27;) {
+    callback = branch;
+    branch = null;
+  }
+  if (typeof depth === &#x27;function&#x27;) {
+    callback = depth;
+    depth = 0;
+  }
+  bash = &#x22;git clone \&#x22;&#x22; + repository + &#x22;\&#x22; \&#x22;&#x22; + path + &#x22;\&#x22;&#x22;;
+  if (branch !== null &#x26;&#x26; typeof branch === &#x27;string&#x27;) {
+    bash += &#x22; --branch \&#x22;&#x22; + branch + &#x22;\&#x22;&#x22;;
+  }
+  if (depth !== 0 &#x26;&#x26; typeof depth === &#x27;number&#x27;) {
+    bash += &#x22; --depth \&#x22;&#x22; + depth + &#x22;\&#x22;&#x22;;
+  }
+  return exec(bash, function(err, stdout, stderr) {
+    if (err) {
+      return callback(err);
+    }
+    return callback(err, new Repo(path, false, {
+      maxBuffer: Git.maxBuffer
+    }));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.commit" id="apidoc.element.gift.commit">
+        function <span class="apidocSignatureSpan">gift.</span>commit
+        <span class="apidocSignatureSpan">(repo1, id1, parents, tree, author1, authored_date1, committer1, committed_date1, gpgsig1, message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Commit(repo1, id1, parents, tree, author1, authored_date1, committer1, committed_date1, gpgsig1, message) {
+  this.repo = repo1;
+  this.id = id1;
+  this.author = author1;
+  this.authored_date = authored_date1;
+  this.committer = committer1;
+  this.committed_date = committed_date1;
+  this.gpgsig = gpgsig1;
+  this.message = message;
+  this.tree = _.memoize((function(_this) {
+    return function() {
+      return new Tree(_this.repo, tree);
+    };
+  })(this));
+  this.parents = _.memoize((function(_this) {
+    return function() {
+      return _.map(parents, function(parent) {
+        return new Commit(_this.repo, parent);
+      });
+    };
+  })(this));
+  this.describe = (function(_this) {
+    return function(refs, first_parent, callback) {
+      var options, parent, ref1, ref2;
+      if (!callback) {
+        ref1 = [callback, first_parent], first_parent = ref1[0], callback = ref1[1];
+      }
+      if (!callback) {
+        ref2 = [callback, refs], refs = ref2[0], callback = ref2[1];
+      }
+      options = {};
+      if (refs === &#x22;all&#x22;) {
+        options.all = true;
+      }
+      if (refs === &#x22;tags&#x22;) {
+        options.tags = true;
+      }
+      if (!!first_parent) {
+        options.first - (parent = true);
+      }
+      options.long = true;
+      return _this.repo.git(&#x22;describe&#x22;, options, _this.id, function(err, stdout, stderr) {
+        if (err) {
+          return callback(err);
+        }
+        return callback(null, stdout.trim());
+      });
+    };
+  })(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.config" id="apidoc.element.gift.config">
+        function <span class="apidocSignatureSpan">gift.</span>config
+        <span class="apidocSignatureSpan">(repo, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">config = function (repo, callback) {
+  return repo.git(&#x22;config&#x22;, {
+    list: true
+  }, function(err, stdout, stderr) {
+    var config;
+    config = new Config(repo);
+    config.parse(stdout);
+    return callback(err, config);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var ref;
+  if (!callback) {
+    ref = [callback, treeish], treeish = ref[0], callback = ref[1];
+  }
+  if (treeish == null) {
+    treeish = &#x22;master&#x22;;
+  }
+  return Submodule.<span class="apidocCodeKeywordSpan">config</span>(this.repo, treeish, (function(_this) {
+    return function(err, config) {
+      return callback(err, config != null ? config[_this.name].url : void 0);
+    };
+  })(this));
+};
+
+Submodule.config = function(repo, treeish, callback) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.diff" id="apidoc.element.gift.diff">
+        function <span class="apidocSignatureSpan">gift.</span>diff
+        <span class="apidocSignatureSpan">(repo1, a_path1, b_path1, a_blob, b_blob, a_mode1, b_mode1, new_file1, deleted_file1, diff1, renamed_file1, similarity_index )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Diff(repo1, a_path1, b_path1, a_blob, b_blob, a_mode1, b_mode1, new_file1, deleted_file1, diff1, renamed_file1, similarity_index ) {
+  this.repo = repo1;
+  this.a_path = a_path1;
+  this.b_path = b_path1;
+  this.a_mode = a_mode1;
+  this.b_mode = b_mode1;
+  this.new_file = new_file1;
+  this.deleted_file = deleted_file1;
+  this.diff = diff1;
+  this.renamed_file = renamed_file1 != null ? renamed_file1 : false;
+  this.similarity_index = similarity_index != null ? similarity_index : 0;
+  if (a_blob !== null) {
+    this.a_blob = new Blob(this.repo, {
+      id: a_blob
+    });
+    this.a_sha = a_blob;
+  }
+  if (b_blob !== null) {
+    this.b_blob = new Blob(this.repo, {
+      id: b_blob
+    });
+    this.b_sha = b_blob;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.git" id="apidoc.element.gift.git">
+        function <span class="apidocSignatureSpan">gift.</span>git
+        <span class="apidocSignatureSpan">(git_dir, dot_git, git_options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">git = function (git_dir, dot_git, git_options) {
+  var git;
+  git_options || (git_options = {});
+  dot_git || (dot_git = git_dir + &#x22;/.git&#x22;);
+  git = function(command, options, args, callback, encoding) {
+    var bash, ref1, ref2;
+    if (!callback) {
+      ref1 = [args, callback], callback = ref1[0], args = ref1[1];
+    }
+    if (!callback) {
+      ref2 = [options, callback], callback = ref2[0], options = ref2[1];
+    }
+    if (options == null) {
+      options = {};
+    }
+    options = options_to_argv(options);
+    options = options.join(&#x22; &#x22;);
+    if (args == null) {
+      args = [];
+    }
+    if (args instanceof Array) {
+      args = args.join(&#x22; &#x22;);
+    }
+    if (encoding == null) {
+      encoding = &#x27;utf8&#x27;;
+    }
+    bash = (git_options.bin || Git.bin) + &#x22; &#x22; + command + &#x22; &#x22; + options + &#x22; &#x22; + args;
+    exec(bash, {
+      cwd: git_dir,
+      encoding: encoding,
+      maxBuffer: git_options.maxBuffer || 5000 * 1024
+    }, callback);
+    return bash;
+  };
+  git.cmd = function(command, options, args, callback, encoding) {
+    return git(command, options, args, callback, encoding);
+  };
+  git.streamCmd = function(command, options, args, encoding) {
+    var allargs, process;
+    if (options == null) {
+      options = {};
+    }
+    options = options_to_argv(options);
+    if (args == null) {
+      args = [];
+    }
+    allargs = [command].concat(options).concat(args);
+    if (encoding == null) {
+      encoding = &#x27;utf8&#x27;;
+    }
+    process = spawn(Git.bin, allargs, {
+      cwd: git_dir,
+      encoding: encoding
+    });
+    return [process.stdout, process.stderr];
+  };
+  git.list_remotes = function(callback) {
+    return fs.readdir(dot_git + &#x22;/refs/remotes&#x22;, function(err, files) {
+      return callback(err, files || []);
+    });
+  };
+  git.refs = function(type, options, callback) {
+    var prefix, ref1;
+    if (!callback) {
+      ref1 = [options, callback], callback = ref1[0], options = ref1[1];
+    }
+    prefix = &#x22;refs/&#x22; + type + &#x22;s/&#x22;;
+    return git(&#x22;show-ref&#x22;, function(err, text) {
+      var i, id, len, line, matches, name, ref2, ref3;
+      if ((err != null ? err.code : void 0) === 1) {
+        err = null;
+      }
+      matches = [];
+      ref2 = (text || &#x22;&#x22;).split(&#x22;\n&#x22;);
+      for (i = 0, len = ref2.length; i &#x3c; len; i++) {
+        line = ref2[i];
+        if (!line) {
+          continue;
+        }
+        ref3 = line.split(&#x27; &#x27;), id = ref3[0], name = ref3[1];
+        if (name.substr(0, prefix.length) === prefix) {
+          matches.push((name.substr(prefix.length)) + &#x22; &#x22; + id);
+        }
+      }
+      return callback(err, matches.join(&#x22;\n&#x22;));
+    });
+  };
+  return git;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  module.exports = Blob = (function() {
+function Blob(repo, attrs) {
+  this.repo = repo;
+  this.id = attrs.id, this.name = attrs.name, this.mode = attrs.mode;
+}
+
+Blob.prototype.data = function(callback) {
+  return this.repo.<span class="apidocCodeKeywordSpan">git</span>(&#x22;cat-file&#x22;, {
+    p: true
+  }, this.id, function(err, stdout, stderr) {
+    return callback(err, stdout);
+  }, &#x27;binary&#x27;);
+};
+
+Blob.prototype.dataStream = function() {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.init" id="apidoc.element.gift.init">
+        function <span class="apidocSignatureSpan">gift.</span>init
+        <span class="apidocSignatureSpan">(path, bare, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">init = function (path, bare, callback) {
+  var bash, ref;
+  if (!callback) {
+    ref = [callback, bare], bare = ref[0], callback = ref[1];
+  }
+  if (bare) {
+    bash = &#x22;git init --bare .&#x22;;
+  } else {
+    bash = &#x22;git init .&#x22;;
+  }
+  return exec(bash, {
+    cwd: path
+  }, function(err, stdout, stderr) {
+    if (err) {
+      return callback(err);
+    }
+    return callback(err, new Repo(path, bare, {
+      maxBuffer: Git.maxBuffer
+    }));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo" id="apidoc.element.gift.repo">
+        function <span class="apidocSignatureSpan">gift.</span>repo
+        <span class="apidocSignatureSpan">(path, bare, git_options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Repo(path, bare, git_options) {
+  this.path = path;
+  this.bare = bare;
+  this.git_options = git_options;
+  if (this.bare) {
+    this.dot_git = this.path;
+  } else {
+    this.dot_git = this.path + &#x22;/.git&#x22;;
+  }
+  this.git = cmd(this.path, this.dot_git, this.git_options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.status" id="apidoc.element.gift.status">
+        function <span class="apidocSignatureSpan">gift.</span>status
+        <span class="apidocSignatureSpan">(repo, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">status = function (repo, options, callback) {
+  return repo.git(&#x22;status --porcelain&#x22;, options, function(err, stdout, stderr) {
+    var status;
+    status = new Status(repo);
+    status.parse(stdout);
+    return callback(err, status);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+if (typeof branch_name === &#x22;function&#x22;) {
+  ref2 = [&#x22;origin&#x22;, remote_name, branch_name], remote = ref2[0], branch = ref2[1], callback = ref2[2];
+}
+if (typeof remote_name === &#x22;function&#x22;) {
+  ref3 = [&#x22;origin&#x22;, &#x22;master&#x22;, remote_name], remote = ref3[0], branch = ref3[1], callback = ref3[2];
+}
+return this.<span class="apidocCodeKeywordSpan">status</span>((function(_this) {
+  return function(err, status) {
+    if (err) {
+      return callback(err);
+    }
+    return _this.git(&#x22;stash&#x22;, {}, [&#x22;save&#x22;, &#x22;-u&#x22;], function(err, stdout, stderr) {
+      if (err) {
+        return callback(stderr);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.submodule" id="apidoc.element.gift.submodule">
+        function <span class="apidocSignatureSpan">gift.</span>submodule
+        <span class="apidocSignatureSpan">(repo1, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Submodule(repo1, options) {
+  this.repo = repo1;
+  this.id = options.id, this.name = options.name, this.mode = options.mode;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.tag" id="apidoc.element.gift.tag">
+        function <span class="apidocSignatureSpan">gift.</span>tag
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Tag() {
+  return Tag.__super__.constructor.apply(this, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.toString" id="apidoc.element.gift.toString">
+        function <span class="apidocSignatureSpan">gift.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Returns streams for you to use to get the data.
+
+Usage:
+
+    data = &#x22;&#x22;
+    [dataStream, _] = blob.dataStream()
+    dataStream.on &#x27;data&#x27;, (buf) -&#x3e;
+      data += buf.<span class="apidocCodeKeywordSpan">toString</span>()
+    .on &#x27;end&#x27;, -&#x3e;
+      callback(data)
+
+## Submodule
+### `Submodule#id`
+`String`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.tree" id="apidoc.element.gift.tree">
+        function <span class="apidocSignatureSpan">gift.</span>tree
+        <span class="apidocSignatureSpan">(repo, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Tree(repo, options) {
+  this.repo = repo;
+  if (_.isString(options)) {
+    this.id = options;
+  } else {
+    this.id = options.id, this.name = options.name, this.mode = options.mode;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Get the current commit.
+
+The callback receives `(err, commit)`.
+
+### `Repo#tree([treeish]) =&#x3e; Tree`
+The `Tree` object for the treeish (which defaults to &#x22;master&#x22;).
+
+    repo.<span class="apidocCodeKeywordSpan">tree</span>().contents (err, children) -&#x3e;
+      for child in children
+        console.log child.name
+
+### `Repo#diff(commitA, commitB, [paths, ]callback)`
+Get the difference between the trees.
+
+The callback receives `(err, diffs)`.
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gift.actor" id="apidoc.module.gift.actor">module gift.actor</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gift.actor.actor" id="apidoc.element.gift.actor.actor">
+        function <span class="apidocSignatureSpan">gift.</span>actor
+        <span class="apidocSignatureSpan">(name1, email1)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Actor(name1, email1) {
+  this.name = name1;
+  this.email = email1;
+  if (this.email) {
+    this.hash = crypto.createHash(&#x22;md5&#x22;).update(this.email, &#x22;ascii&#x22;).digest(&#x22;hex&#x22;);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+tree = _.last(lines.shift().split(&#x22; &#x22;));
+parents = [];
+while (/^parent/.test(lines[0])) {
+  parents.push(_.last(lines.shift().split(&#x22; &#x22;)));
+}
+author_line = lines.shift();
+ref1 = this.<span class="apidocCodeKeywordSpan">actor</span>(author_line), author = ref1[0], authored_date = ref1[1];
+committer_line = lines.shift();
+ref2 = this.actor(committer_line), committer = ref2[0], committed_date = ref2[1];
+gpgsig = [];
+if (/^gpgsig/.test(lines[0])) {
+  gpgsig.push(lines.shift().replace(/^gpgsig /, &#x27;&#x27;));
+  while (!/^ -----END PGP SIGNATURE-----$/.test(lines[0])) {
+    gpgsig.push(lines.shift());
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.actor.from_string" id="apidoc.element.gift.actor.from_string">
+        function <span class="apidocSignatureSpan">gift.actor.</span>from_string
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">from_string = function (str) {
+  var email, m, name, ref;
+  if (/&#x3c;.+&#x3e;/.test(str)) {
+    ref = /(.*) &#x3c;(.+?)&#x3e;/.exec(str), m = ref[0], name = ref[1], email = ref[2];
+    return new Actor(name, email);
+  } else {
+    return new Actor(str, null);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      }
+      return commits;
+    };
+
+    Commit.actor = function(line) {
+      var actor, epoch, m, ref1;
+      ref1 = /^.+? (.*) (\d+) .*$/.exec(line), m = ref1[0], actor = ref1[1], epoch = ref1[2];
+      return [Actor.<span class="apidocCodeKeywordSpan">from_string</span>(actor), new Date(1000 * +epoch)];
+    };
+
+    return Commit;
+
+  })();
+
+}).call(this);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gift.actor.prototype" id="apidoc.module.gift.actor.prototype">module gift.actor.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gift.actor.prototype.toString" id="apidoc.element.gift.actor.prototype.toString">
+        function <span class="apidocSignatureSpan">gift.actor.prototype.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+  return this.name + &#x22; &#x3c;&#x22; + this.email + &#x22;&#x3e;&#x22;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Returns streams for you to use to get the data.
+
+Usage:
+
+    data = &#x22;&#x22;
+    [dataStream, _] = blob.dataStream()
+    dataStream.on &#x27;data&#x27;, (buf) -&#x3e;
+      data += buf.<span class="apidocCodeKeywordSpan">toString</span>()
+    .on &#x27;end&#x27;, -&#x3e;
+      callback(data)
+
+## Submodule
+### `Submodule#id`
+`String`
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gift.blob" id="apidoc.module.gift.blob">module gift.blob</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gift.blob.blob" id="apidoc.element.gift.blob.blob">
+        function <span class="apidocSignatureSpan">gift.</span>blob
+        <span class="apidocSignatureSpan">(repo, attrs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Blob(repo, attrs) {
+  this.repo = repo;
+  this.id = attrs.id, this.name = attrs.name, this.mode = attrs.mode;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gift.blob.prototype" id="apidoc.module.gift.blob.prototype">module gift.blob.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gift.blob.prototype.data" id="apidoc.element.gift.blob.prototype.data">
+        function <span class="apidocSignatureSpan">gift.blob.prototype.</span>data
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">data = function (callback) {
+  return this.repo.git(&#x22;cat-file&#x22;, {
+    p: true
+  }, this.id, function(err, stdout, stderr) {
+    return callback(err, stdout);
+  }, &#x27;binary&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+Submodule.config = function(repo, treeish, callback) {
+  return repo.tree(treeish).find(&#x22;.gitmodules&#x22;, function(err, blob) {
+    if (err) {
+      return callback(err);
+    }
+    return blob.<span class="apidocCodeKeywordSpan">data</span>(function(err, data) {
+      var conf, current, line, lines, match;
+      if (err) {
+        return callback(err);
+      }
+      conf = {};
+      lines = data.split(&#x22;\n&#x22;);
+      current = null;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.blob.prototype.dataStream" id="apidoc.element.gift.blob.prototype.dataStream">
+        function <span class="apidocSignatureSpan">gift.blob.prototype.</span>dataStream
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">dataStream = function () {
+  var streams;
+  streams = this.repo.git.streamCmd(&#x22;cat-file&#x22;, {
+    p: true
+  }, [this.id]);
+  return streams;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  * returns - [dataStream, errorStream]
+
+Returns streams for you to use to get the data.
+
+Usage:
+
+    data = &#x22;&#x22;
+    [dataStream, _] = blob.<span class="apidocCodeKeywordSpan">dataStream</span>()
+    dataStream.on &#x27;data&#x27;, (buf) -&#x3e;
+      data += buf.toString()
+    .on &#x27;end&#x27;, -&#x3e;
+      callback(data)
+
+## Submodule
+### `Submodule#id`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.blob.prototype.toString" id="apidoc.element.gift.blob.prototype.toString">
+        function <span class="apidocSignatureSpan">gift.blob.prototype.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+  return &#x22;#&#x3c;Blob &#x27;&#x22; + this.id + &#x22;&#x27;&#x3e;&#x22;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Returns streams for you to use to get the data.
+
+Usage:
+
+    data = &#x22;&#x22;
+    [dataStream, _] = blob.dataStream()
+    dataStream.on &#x27;data&#x27;, (buf) -&#x3e;
+      data += buf.<span class="apidocCodeKeywordSpan">toString</span>()
+    .on &#x27;end&#x27;, -&#x3e;
+      callback(data)
+
+## Submodule
+### `Submodule#id`
+`String`
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gift.clone" id="apidoc.module.gift.clone">module gift.clone</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gift.clone.clone" id="apidoc.element.gift.clone.clone">
+        function <span class="apidocSignatureSpan">gift.</span>clone
+        <span class="apidocSignatureSpan">(repository, path, depth, branch, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">clone = function (repository, path, depth, branch, callback) {
+  var bash;
+  if (depth == null) {
+    depth = 0;
+  }
+  if (branch == null) {
+    branch = null;
+  }
+  if (typeof branch === &#x27;function&#x27;) {
+    callback = branch;
+    branch = null;
+  }
+  if (typeof depth === &#x27;function&#x27;) {
+    callback = depth;
+    depth = 0;
+  }
+  bash = &#x22;git clone \&#x22;&#x22; + repository + &#x22;\&#x22; \&#x22;&#x22; + path + &#x22;\&#x22;&#x22;;
+  if (branch !== null &#x26;&#x26; typeof branch === &#x27;string&#x27;) {
+    bash += &#x22; --branch \&#x22;&#x22; + branch + &#x22;\&#x22;&#x22;;
+  }
+  if (depth !== 0 &#x26;&#x26; typeof depth === &#x27;number&#x27;) {
+    bash += &#x22; --depth \&#x22;&#x22; + depth + &#x22;\&#x22;&#x22;;
+  }
+  return exec(bash, function(err, stdout, stderr) {
+    if (err) {
+      return callback(err);
+    }
+    return callback(err, new Repo(path, false, {
+      maxBuffer: Git.maxBuffer
+    }));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gift.commit" id="apidoc.module.gift.commit">module gift.commit</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gift.commit.commit" id="apidoc.element.gift.commit.commit">
+        function <span class="apidocSignatureSpan">gift.</span>commit
+        <span class="apidocSignatureSpan">(repo1, id1, parents, tree, author1, authored_date1, committer1, committed_date1, gpgsig1, message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Commit(repo1, id1, parents, tree, author1, authored_date1, committer1, committed_date1, gpgsig1, message) {
+  this.repo = repo1;
+  this.id = id1;
+  this.author = author1;
+  this.authored_date = authored_date1;
+  this.committer = committer1;
+  this.committed_date = committed_date1;
+  this.gpgsig = gpgsig1;
+  this.message = message;
+  this.tree = _.memoize((function(_this) {
+    return function() {
+      return new Tree(_this.repo, tree);
+    };
+  })(this));
+  this.parents = _.memoize((function(_this) {
+    return function() {
+      return _.map(parents, function(parent) {
+        return new Commit(_this.repo, parent);
+      });
+    };
+  })(this));
+  this.describe = (function(_this) {
+    return function(refs, first_parent, callback) {
+      var options, parent, ref1, ref2;
+      if (!callback) {
+        ref1 = [callback, first_parent], first_parent = ref1[0], callback = ref1[1];
+      }
+      if (!callback) {
+        ref2 = [callback, refs], refs = ref2[0], callback = ref2[1];
+      }
+      options = {};
+      if (refs === &#x22;all&#x22;) {
+        options.all = true;
+      }
+      if (refs === &#x22;tags&#x22;) {
+        options.tags = true;
+      }
+      if (!!first_parent) {
+        options.first - (parent = true);
+      }
+      options.long = true;
+      return _this.repo.git(&#x22;describe&#x22;, options, _this.id, function(err, stdout, stderr) {
+        if (err) {
+          return callback(err);
+        }
+        return callback(null, stdout.trim());
+      });
+    };
+  })(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.commit.actor" id="apidoc.element.gift.commit.actor">
+        function <span class="apidocSignatureSpan">gift.commit.</span>actor
+        <span class="apidocSignatureSpan">(line)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">actor = function (line) {
+  var actor, epoch, m, ref1;
+  ref1 = /^.+? (.*) (\d+) .*$/.exec(line), m = ref1[0], actor = ref1[1], epoch = ref1[2];
+  return [Actor.from_string(actor), new Date(1000 * +epoch)];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+tree = _.last(lines.shift().split(&#x22; &#x22;));
+parents = [];
+while (/^parent/.test(lines[0])) {
+  parents.push(_.last(lines.shift().split(&#x22; &#x22;)));
+}
+author_line = lines.shift();
+ref1 = this.<span class="apidocCodeKeywordSpan">actor</span>(author_line), author = ref1[0], authored_date = ref1[1];
+committer_line = lines.shift();
+ref2 = this.actor(committer_line), committer = ref2[0], committed_date = ref2[1];
+gpgsig = [];
+if (/^gpgsig/.test(lines[0])) {
+  gpgsig.push(lines.shift().replace(/^gpgsig /, &#x27;&#x27;));
+  while (!/^ -----END PGP SIGNATURE-----$/.test(lines[0])) {
+    gpgsig.push(lines.shift());
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.commit.find" id="apidoc.element.gift.commit.find">
+        function <span class="apidocSignatureSpan">gift.commit.</span>find
+        <span class="apidocSignatureSpan">(repo, id, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">find = function (repo, id, callback) {
+  var options;
+  options = {
+    pretty: &#x22;raw&#x22;,
+    &#x22;max-count&#x22;: 1
+  };
+  return repo.git(&#x22;rev-list&#x22;, options, id, (function(_this) {
+    return function(err, stdout, stderr) {
+      if (err) {
+        return callback(err);
+      }
+      return callback(null, _this.parse_commits(repo, stdout)[0]);
+    };
+  })(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+    Commit.find_commits = function(repo, ids, callback) {
+var commits, next;
+commits = [];
+next = function(i) {
+  var id;
+  if (id = ids[i]) {
+    return Commit.<span class="apidocCodeKeywordSpan">find</span>(repo, id, function(err, commit) {
+      if (err) {
+        return callback(err);
+      }
+      commits.push(commit);
+      return next(i + 1);
+    });
+  } else {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.commit.find_all" id="apidoc.element.gift.commit.find_all">
+        function <span class="apidocSignatureSpan">gift.commit.</span>find_all
+        <span class="apidocSignatureSpan">(repo, ref, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">find_all = function (repo, ref, options, callback) {
+  options = _.extend({
+    pretty: &#x22;raw&#x22;
+  }, options);
+  return repo.git(&#x22;rev-list&#x22;, options, ref, (function(_this) {
+    return function(err, stdout, stderr) {
+      if (err) {
+        return callback(err);
+      }
+      return callback(null, _this.parse_commits(repo, stdout));
+    };
+  })(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+extend(Head, superClass);
+
+function Head() {
+  return Head.__super__.constructor.apply(this, arguments);
+}
+
+Head.find_all = function(repo, callback) {
+  return Ref.<span class="apidocCodeKeywordSpan">find_all</span>(repo, &#x22;head&#x22;, Head, callback);
+};
+
+Head.current = function(repo, callback) {
+  return fs.readFile(repo.dot_git + &#x22;/HEAD&#x22;, function(err, data) {
+    var branch, m, ref;
+    if (err) {
+      return callback(err);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.commit.find_commits" id="apidoc.element.gift.commit.find_commits">
+        function <span class="apidocSignatureSpan">gift.commit.</span>find_commits
+        <span class="apidocSignatureSpan">(repo, ids, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">find_commits = function (repo, ids, callback) {
+  var commits, next;
+  commits = [];
+  next = function(i) {
+    var id;
+    if (id = ids[i]) {
+      return Commit.find(repo, id, function(err, commit) {
+        if (err) {
+          return callback(err);
+        }
+        commits.push(commit);
+        return next(i + 1);
+      });
+    } else {
+      return callback(null, commits);
+    }
+  };
+  return next(0);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (!ref) {
+    continue;
+  }
+  ref2 = ref.split(&#x27; &#x27;), name = ref2[0], id = ref2[1];
+  names.push(name);
+  ids.push(id);
+}
+return Commit.<span class="apidocCodeKeywordSpan">find_commits</span>(repo, ids, function(err, commits) {
+  var i, k, len1, refs;
+  if (err) {
+    return callback(err);
+  }
+  refs = [];
+  for (i = k = 0, len1 = names.length; k &#x3c; len1; i = ++k) {
+    name = names[i];
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.commit.parse_commits" id="apidoc.element.gift.commit.parse_commits">
+        function <span class="apidocSignatureSpan">gift.commit.</span>parse_commits
+        <span class="apidocSignatureSpan">(repo, text)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parse_commits = function (repo, text) {
+  var author, author_line, authored_date, commits, committed_date, committer, committer_line, encoding, gpgsig, id, lines, message_lines
+, parents, ref1, ref2, tree;
+  commits = [];
+  lines = text.split(&#x22;\n&#x22;);
+  while (lines.length) {
+    id = _.last(lines.shift().split(&#x22; &#x22;));
+    if (!id) {
+      break;
+    }
+    tree = _.last(lines.shift().split(&#x22; &#x22;));
+    parents = [];
+    while (/^parent/.test(lines[0])) {
+      parents.push(_.last(lines.shift().split(&#x22; &#x22;)));
+    }
+    author_line = lines.shift();
+    ref1 = this.actor(author_line), author = ref1[0], authored_date = ref1[1];
+    committer_line = lines.shift();
+    ref2 = this.actor(committer_line), committer = ref2[0], committed_date = ref2[1];
+    gpgsig = [];
+    if (/^gpgsig/.test(lines[0])) {
+      gpgsig.push(lines.shift().replace(/^gpgsig /, &#x27;&#x27;));
+      while (!/^ -----END PGP SIGNATURE-----$/.test(lines[0])) {
+        gpgsig.push(lines.shift());
+      }
+      gpgsig.push(lines.shift());
+    }
+    while (/^kilnhgcopies/.test(lines[0])) {
+      lines.shift();
+    }
+    while (/^HG:/.test(lines[0])) {
+      lines.shift();
+    }
+    if (/^encoding/.test(lines[0])) {
+      encoding = _.last(lines.shift().split(&#x22; &#x22;));
+    }
+    if (lines.length) {
+      lines.shift();
+    }
+    message_lines = [];
+    while (/^ {4}/.test(lines[0])) {
+      message_lines.push(lines.shift().slice(4));
+    }
+    while ((lines[0] != null) &#x26;&#x26; !lines[0].length) {
+      lines.shift();
+    }
+    commits.push(new Commit(repo, id, parents, tree, author, authored_date, committer, committed_date, gpgsig.join(&#x22;\n&#x22;), message_lines
+.join(&#x22;\n&#x22;)));
+  }
+  return commits;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    pretty: &#x22;raw&#x22;
+  }, options);
+  return repo.git(&#x22;rev-list&#x22;, options, ref, (function(_this) {
+    return function(err, stdout, stderr) {
+      if (err) {
+        return callback(err);
+      }
+      return callback(null, _this.<span class="apidocCodeKeywordSpan">parse_commits</span>(repo, stdout));
+    };
+  })(this));
+};
+
+Commit.find = function(repo, id, callback) {
+  var options;
+  options = {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gift.commit.prototype" id="apidoc.module.gift.commit.prototype">module gift.commit.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gift.commit.prototype.toJSON" id="apidoc.element.gift.commit.prototype.toJSON">
+        function <span class="apidocSignatureSpan">gift.commit.prototype.</span>toJSON
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toJSON = function () {
+  return {
+    id: this.id,
+    author: this.author,
+    authored_date: this.authored_date,
+    committer: this.committer,
+    committed_date: this.committed_date,
+    message: this.message
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gift.config" id="apidoc.module.gift.config">module gift.config</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gift.config.config" id="apidoc.element.gift.config.config">
+        function <span class="apidocSignatureSpan">gift.</span>config
+        <span class="apidocSignatureSpan">(repo, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">config = function (repo, callback) {
+  return repo.git(&#x22;config&#x22;, {
+    list: true
+  }, function(err, stdout, stderr) {
+    var config;
+    config = new Config(repo);
+    config.parse(stdout);
+    return callback(err, config);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var ref;
+  if (!callback) {
+    ref = [callback, treeish], treeish = ref[0], callback = ref[1];
+  }
+  if (treeish == null) {
+    treeish = &#x22;master&#x22;;
+  }
+  return Submodule.<span class="apidocCodeKeywordSpan">config</span>(this.repo, treeish, (function(_this) {
+    return function(err, config) {
+      return callback(err, config != null ? config[_this.name].url : void 0);
+    };
+  })(this));
+};
+
+Submodule.config = function(repo, treeish, callback) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.config.Config" id="apidoc.element.gift.config.Config">
+        function <span class="apidocSignatureSpan">gift.config.</span>Config
+        <span class="apidocSignatureSpan">(repo1)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Config(repo1) {
+  this.repo = repo1;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gift.diff" id="apidoc.module.gift.diff">module gift.diff</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gift.diff.diff" id="apidoc.element.gift.diff.diff">
+        function <span class="apidocSignatureSpan">gift.</span>diff
+        <span class="apidocSignatureSpan">(repo1, a_path1, b_path1, a_blob, b_blob, a_mode1, b_mode1, new_file1, deleted_file1, diff1, renamed_file1, similarity_index )</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Diff(repo1, a_path1, b_path1, a_blob, b_blob, a_mode1, b_mode1, new_file1, deleted_file1, diff1, renamed_file1, similarity_index ) {
+  this.repo = repo1;
+  this.a_path = a_path1;
+  this.b_path = b_path1;
+  this.a_mode = a_mode1;
+  this.b_mode = b_mode1;
+  this.new_file = new_file1;
+  this.deleted_file = deleted_file1;
+  this.diff = diff1;
+  this.renamed_file = renamed_file1 != null ? renamed_file1 : false;
+  this.similarity_index = similarity_index != null ? similarity_index : 0;
+  if (a_blob !== null) {
+    this.a_blob = new Blob(this.repo, {
+      id: a_blob
+    });
+    this.a_sha = a_blob;
+  }
+  if (b_blob !== null) {
+    this.b_blob = new Blob(this.repo, {
+      id: b_blob
+    });
+    this.b_sha = b_blob;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.diff.parse" id="apidoc.element.gift.diff.parse">
+        function <span class="apidocSignatureSpan">gift.diff.</span>parse
+        <span class="apidocSignatureSpan">(repo, text)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parse = function (repo, text) {
+  var a_blob, a_mode, a_path, b_blob, b_mode, b_path, deleted_file, diff, diff_lines, diffs, lines, m, new_file, ref, ref1, ref2
+, ref3, ref4, ref5, renamed_file, sim_index;
+  lines = text.split(&#x22;\n&#x22;);
+  diffs = [];
+  while (lines.length &#x26;&#x26; lines[0]) {
+    ref = /^diff\s--git\s&#x22;?a\/(.+?)&#x22;?\s&#x22;?b\/(.+)&#x22;?$/.exec(lines.shift()), m = ref[0], a_path = ref[1], b_path = ref[2];
+    if (/^old mode/.test(lines[0])) {
+      ref1 = /^old mode (\d+)/.exec(lines.shift()), m = ref1[0], a_mode = ref1[1];
+      ref2 = /^new mode (\d+)/.exec(lines.shift()), m = ref2[0], b_mode = ref2[1];
+    }
+    if (!lines.length || /^diff --git/.test(lines[0])) {
+      diffs.push(new Diff(repo, a_path, b_path, null, null, a_mode, b_mode, false, false, null));
+      continue;
+    }
+    sim_index = 0;
+    new_file = false;
+    deleted_file = false;
+    renamed_file = false;
+    if (/^new file/.test(lines[0])) {
+      ref3 = /^new file mode (.+)$/.exec(lines.shift()), m = ref3[0], b_mode = ref3[1];
+      a_mode = null;
+      new_file = true;
+    } else if (/^deleted file/.test(lines[0])) {
+      ref4 = /^deleted file mode (.+)$/.exec(lines.shift()), m = ref4[0], a_mode = ref4[1];
+      b_mode = null;
+      deleted_file = true;
+    } else if (m = /^similarity index (\d+)\%/.exec(lines[0])) {
+      sim_index = m[1].to_i;
+      renamed_file = true;
+      lines.shift();
+      lines.shift();
+    }
+    ref5 = /^index\s([0-9A-Fa-f]+)\.\.([0-9A-Fa-f]+)\s?(.+)?$/.exec(lines.shift()), m = ref5[0], a_blob = ref5[1], b_blob = ref5
+[2], b_mode = ref5[3];
+    if (b_mode) {
+      b_mode = b_mode.trim();
+    }
+    diff_lines = [];
+    while (lines[0] &#x26;&#x26; !/^diff/.test(lines[0])) {
+      diff_lines.push(lines.shift());
+    }
+    diff = diff_lines.join(&#x22;\n&#x22;);
+    diffs.push(new Diff(repo, a_path, b_path, a_blob, b_blob, a_mode, b_mode, new_file, deleted_file, diff, renamed_file, sim_index
+));
+  }
+  return diffs;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+module.exports = C = function(repo, callback) {
+  return repo.git(&#x22;config&#x22;, {
+    list: true
+  }, function(err, stdout, stderr) {
+    var config;
+    config = new Config(repo);
+    config.<span class="apidocCodeKeywordSpan">parse</span>(stdout);
+    return callback(err, config);
+  });
+};
+
+C.Config = Config = (function() {
+  function Config(repo1) {
+    this.repo = repo1;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.diff.parse_raw" id="apidoc.element.gift.diff.parse_raw">
+        function <span class="apidocSignatureSpan">gift.diff.</span>parse_raw
+        <span class="apidocSignatureSpan">(repo, text)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parse_raw = function (repo, text) {
+  var a_mode, a_path, a_sha, b_mode, b_path, b_sha, deleted_file, diffs, i, len, line, lines, new_file, ref, renamed_file, status
+;
+  lines = _.compact(text.split(&#x22;\n&#x22;));
+  diffs = [];
+  for (i = 0, len = lines.length; i &#x3c; len; i++) {
+    line = lines[i];
+    line = line.slice(1);
+    line = line.replace(/\.\.\./g, &#x27;&#x27;);
+    ref = line.split(/\s/), a_mode = ref[0], b_mode = ref[1], a_sha = ref[2], b_sha = ref[3], status = ref[4], a_path = ref[5],
+b_path = ref[6];
+    if (!b_path) {
+      b_path = a_path;
+    }
+    new_file = status === &#x27;M&#x27;;
+    deleted_file = status === &#x27;D&#x27;;
+    renamed_file = status === &#x27;R&#x27;;
+    diffs.push(new Diff(repo, a_path, b_path, a_sha, b_sha, a_mode, b_mode, new_file, deleted_file, null, renamed_file, null));
+  }
+  return diffs;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+  return this.git(&#x22;diff&#x22;, options, _.flatten([commitA, commitB, &#x22;--&#x22;, paths]), (function(_this) {
+    return function(err, stdout, stderr) {
+      if (err) {
+        return callback(err);
+      }
+      if (_.has(options, &#x27;raw&#x27;)) {
+        return callback(err, Diff.<span class="apidocCodeKeywordSpan">parse_raw</span>(_this, stdout));
+      } else {
+        return callback(err, Diff.parse(_this, stdout));
+      }
+    };
+  })(this), &#x27;binary&#x27;);
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gift.diff.prototype" id="apidoc.module.gift.diff.prototype">module gift.diff.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gift.diff.prototype.toJSON" id="apidoc.element.gift.diff.prototype.toJSON">
+        function <span class="apidocSignatureSpan">gift.diff.prototype.</span>toJSON
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toJSON = function () {
+  return {
+    a_path: this.a_path,
+    b_path: this.b_path,
+    a_mode: this.a_mode,
+    b_mode: this.b_mode,
+    new_file: this.new_file,
+    deleted_file: this.deleted_file,
+    diff: this.diff,
+    renamed_file: this.renamed_file,
+    similarity_index: this.similarity_index
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gift.git" id="apidoc.module.gift.git">module gift.git</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gift.git.git" id="apidoc.element.gift.git.git">
+        function <span class="apidocSignatureSpan">gift.</span>git
+        <span class="apidocSignatureSpan">(git_dir, dot_git, git_options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">git = function (git_dir, dot_git, git_options) {
+  var git;
+  git_options || (git_options = {});
+  dot_git || (dot_git = git_dir + &#x22;/.git&#x22;);
+  git = function(command, options, args, callback, encoding) {
+    var bash, ref1, ref2;
+    if (!callback) {
+      ref1 = [args, callback], callback = ref1[0], args = ref1[1];
+    }
+    if (!callback) {
+      ref2 = [options, callback], callback = ref2[0], options = ref2[1];
+    }
+    if (options == null) {
+      options = {};
+    }
+    options = options_to_argv(options);
+    options = options.join(&#x22; &#x22;);
+    if (args == null) {
+      args = [];
+    }
+    if (args instanceof Array) {
+      args = args.join(&#x22; &#x22;);
+    }
+    if (encoding == null) {
+      encoding = &#x27;utf8&#x27;;
+    }
+    bash = (git_options.bin || Git.bin) + &#x22; &#x22; + command + &#x22; &#x22; + options + &#x22; &#x22; + args;
+    exec(bash, {
+      cwd: git_dir,
+      encoding: encoding,
+      maxBuffer: git_options.maxBuffer || 5000 * 1024
+    }, callback);
+    return bash;
+  };
+  git.cmd = function(command, options, args, callback, encoding) {
+    return git(command, options, args, callback, encoding);
+  };
+  git.streamCmd = function(command, options, args, encoding) {
+    var allargs, process;
+    if (options == null) {
+      options = {};
+    }
+    options = options_to_argv(options);
+    if (args == null) {
+      args = [];
+    }
+    allargs = [command].concat(options).concat(args);
+    if (encoding == null) {
+      encoding = &#x27;utf8&#x27;;
+    }
+    process = spawn(Git.bin, allargs, {
+      cwd: git_dir,
+      encoding: encoding
+    });
+    return [process.stdout, process.stderr];
+  };
+  git.list_remotes = function(callback) {
+    return fs.readdir(dot_git + &#x22;/refs/remotes&#x22;, function(err, files) {
+      return callback(err, files || []);
+    });
+  };
+  git.refs = function(type, options, callback) {
+    var prefix, ref1;
+    if (!callback) {
+      ref1 = [options, callback], callback = ref1[0], options = ref1[1];
+    }
+    prefix = &#x22;refs/&#x22; + type + &#x22;s/&#x22;;
+    return git(&#x22;show-ref&#x22;, function(err, text) {
+      var i, id, len, line, matches, name, ref2, ref3;
+      if ((err != null ? err.code : void 0) === 1) {
+        err = null;
+      }
+      matches = [];
+      ref2 = (text || &#x22;&#x22;).split(&#x22;\n&#x22;);
+      for (i = 0, len = ref2.length; i &#x3c; len; i++) {
+        line = ref2[i];
+        if (!line) {
+          continue;
+        }
+        ref3 = line.split(&#x27; &#x27;), id = ref3[0], name = ref3[1];
+        if (name.substr(0, prefix.length) === prefix) {
+          matches.push((name.substr(prefix.length)) + &#x22; &#x22; + id);
+        }
+      }
+      return callback(err, matches.join(&#x22;\n&#x22;));
+    });
+  };
+  return git;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  module.exports = Blob = (function() {
+function Blob(repo, attrs) {
+  this.repo = repo;
+  this.id = attrs.id, this.name = attrs.name, this.mode = attrs.mode;
+}
+
+Blob.prototype.data = function(callback) {
+  return this.repo.<span class="apidocCodeKeywordSpan">git</span>(&#x22;cat-file&#x22;, {
+    p: true
+  }, this.id, function(err, stdout, stderr) {
+    return callback(err, stdout);
+  }, &#x27;binary&#x27;);
+};
+
+Blob.prototype.dataStream = function() {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.git.options_to_argv" id="apidoc.element.gift.git.options_to_argv">
+        function <span class="apidocSignatureSpan">gift.git.</span>options_to_argv
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">options_to_argv = function (options) {
+  var argv, key, val;
+  argv = [];
+  for (key in options) {
+    val = options[key];
+    if (key.length === 1) {
+      if (val === true) {
+        argv.push(&#x22;-&#x22; + key);
+      } else if (val === false) {
+
+      } else {
+        argv.push(&#x22;-&#x22; + key);
+        argv.push(val);
+      }
+    } else {
+      if (val === true) {
+        argv.push(&#x22;--&#x22; + key);
+      } else if (val === false) {
+
+      } else {
+        argv.push(&#x22;--&#x22; + key + &#x22;=&#x22; + val);
+      }
+    }
+  }
+  return argv;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gift.init" id="apidoc.module.gift.init">module gift.init</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gift.init.init" id="apidoc.element.gift.init.init">
+        function <span class="apidocSignatureSpan">gift.</span>init
+        <span class="apidocSignatureSpan">(path, bare, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">init = function (path, bare, callback) {
+  var bash, ref;
+  if (!callback) {
+    ref = [callback, bare], bare = ref[0], callback = ref[1];
+  }
+  if (bare) {
+    bash = &#x22;git init --bare .&#x22;;
+  } else {
+    bash = &#x22;git init .&#x22;;
+  }
+  return exec(bash, {
+    cwd: path
+  }, function(err, stdout, stderr) {
+    if (err) {
+      return callback(err);
+    }
+    return callback(err, new Repo(path, bare, {
+      maxBuffer: Git.maxBuffer
+    }));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gift.ref" id="apidoc.module.gift.ref">module gift.ref</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gift.ref.Head" id="apidoc.element.gift.ref.Head">
+        function <span class="apidocSignatureSpan">gift.ref.</span>Head
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Head() {
+  return Head.__super__.constructor.apply(this, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.ref.Ref" id="apidoc.element.gift.ref.Ref">
+        function <span class="apidocSignatureSpan">gift.ref.</span>Ref
+        <span class="apidocSignatureSpan">(name1, commit1)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Ref(name1, commit1) {
+  this.name = name1;
+  this.commit = commit1;
+  this.repo = this.commit.repo;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gift.repo" id="apidoc.module.gift.repo">module gift.repo</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.repo" id="apidoc.element.gift.repo.repo">
+        function <span class="apidocSignatureSpan">gift.</span>repo
+        <span class="apidocSignatureSpan">(path, bare, git_options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Repo(path, bare, git_options) {
+  this.path = path;
+  this.bare = bare;
+  this.git_options = git_options;
+  if (this.bare) {
+    this.dot_git = this.path;
+  } else {
+    this.dot_git = this.path + &#x22;/.git&#x22;;
+  }
+  this.git = cmd(this.path, this.dot_git, this.git_options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gift.repo.prototype" id="apidoc.module.gift.repo.prototype">module gift.repo.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.add" id="apidoc.element.gift.repo.prototype.add">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>add
+        <span class="apidocSignatureSpan">(files, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">add = function (files, options, callback) {
+  var ref1;
+  if (!callback) {
+    ref1 = [callback, options], options = ref1[0], callback = ref1[1];
+  }
+  if (options == null) {
+    options = {};
+  }
+  if (_.isString(files)) {
+    files = [files];
+  }
+  return this.git(&#x22;add&#x22;, options, files, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.branch" id="apidoc.element.gift.repo.prototype.branch">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>branch
+        <span class="apidocSignatureSpan">(name, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">branch = function (name, callback) {
+  var ref1;
+  if (!callback) {
+    ref1 = [callback, name], name = ref1[0], callback = ref1[1];
+  }
+  if (!name) {
+    return Head.current(this, callback);
+  } else {
+    return this.branches(function(err, heads) {
+      var head, i, len;
+      if (err) {
+        return callback(err);
+      }
+      for (i = 0, len = heads.length; i &#x3c; len; i++) {
+        head = heads[i];
+        if (head.name === name) {
+          return callback(null, head);
+        }
+      }
+      return callback(new Error(&#x22;No branch named &#x27;&#x22; + name + &#x22;&#x27; found&#x22;));
+    });
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.branches" id="apidoc.element.gift.repo.prototype.branches">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>branches
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">branches = function (callback) {
+  return Head.find_all(this, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var ref1;
+if (!callback) {
+  ref1 = [callback, name], name = ref1[0], callback = ref1[1];
+}
+if (!name) {
+  return Head.current(this, callback);
+} else {
+  return this.<span class="apidocCodeKeywordSpan">branches</span>(function(err, heads) {
+    var head, i, len;
+    if (err) {
+      return callback(err);
+    }
+    for (i = 0, len = heads.length; i &#x3c; len; i++) {
+      head = heads[i];
+      if (head.name === name) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.checkout" id="apidoc.element.gift.repo.prototype.checkout">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>checkout
+        <span class="apidocSignatureSpan">(treeish, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">checkout = function (treeish, options, callback) {
+  var ref1;
+  if (!callback) {
+    ref1 = [{}, options], options = ref1[0], callback = ref1[1];
+  }
+  return this.git(&#x22;checkout&#x22;, options, treeish, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.checkoutFile" id="apidoc.element.gift.repo.prototype.checkoutFile">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>checkoutFile
+        <span class="apidocSignatureSpan">(files, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">checkoutFile = function (files, options, callback) {
+  var ref1, ref2, ref3;
+  if (!callback) {
+    ref1 = [callback, options], options = ref1[0], callback = ref1[1];
+  }
+  if (!callback) {
+    ref2 = [callback, files], files = ref2[0], callback = ref2[1];
+  }
+  if (typeof files === &#x27;object&#x27;) {
+    ref3 = [options, files], files = ref3[0], options = ref3[1];
+  }
+  if (options == null) {
+    options = {};
+  }
+  if (files == null) {
+    files = &#x27;.&#x27;;
+  }
+  if (_.isString(files)) {
+    files = [files];
+  }
+  return this.git(&#x22;checkout&#x22;, options, _.flatten([&#x27;--&#x27;, files]), callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.clean" id="apidoc.element.gift.repo.prototype.clean">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>clean
+        <span class="apidocSignatureSpan">(options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">clean = function (options, callback) {
+  if (options == null) {
+    options = {};
+  }
+  return this.git(&#x22;clean&#x22;, options, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.commit" id="apidoc.element.gift.repo.prototype.commit">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>commit
+        <span class="apidocSignatureSpan">(message, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">commit = function (message, options, callback) {
+  var ref1;
+  if (!callback) {
+    ref1 = [callback, options], options = ref1[0], callback = ref1[1];
+  }
+  if (options == null) {
+    options = {};
+  }
+  options = _.extend(options, {
+    m: &#x22;\&#x22;&#x22; + message + &#x22;\&#x22;&#x22;
+  });
+  if (options.author != null) {
+    options.author = &#x22;\&#x22;&#x22; + options.author + &#x22;\&#x22;&#x22;;
+  }
+  return this.git(&#x22;commit&#x22;, options, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.commits" id="apidoc.element.gift.repo.prototype.commits">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>commits
+        <span class="apidocSignatureSpan">(start, limit, skip, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">commits = function (start, limit, skip, callback) {
+  var options, ref1, ref2, ref3;
+  if (!callback) {
+    ref1 = [callback, skip], skip = ref1[0], callback = ref1[1];
+  }
+  if (!callback) {
+    ref2 = [callback, limit], limit = ref2[0], callback = ref2[1];
+  }
+  if (!callback) {
+    ref3 = [callback, start], start = ref3[0], callback = ref3[1];
+  }
+  if (!callback) {
+    throw new Error(&#x22;a callback is required&#x22;);
+  }
+  if (start == null) {
+    start = &#x22;master&#x22;;
+  }
+  if (limit == null) {
+    limit = 10;
+  }
+  if (skip == null) {
+    skip = 0;
+  }
+  options = {
+    skip: skip
+  };
+  if (limit !== -1) {
+    options[&#x22;max-count&#x22;] = limit;
+  }
+  return Commit.find_all(this, start, options, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.config" id="apidoc.element.gift.repo.prototype.config">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>config
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">config = function (callback) {
+  return Config(this, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var ref;
+  if (!callback) {
+    ref = [callback, treeish], treeish = ref[0], callback = ref[1];
+  }
+  if (treeish == null) {
+    treeish = &#x22;master&#x22;;
+  }
+  return Submodule.<span class="apidocCodeKeywordSpan">config</span>(this.repo, treeish, (function(_this) {
+    return function(err, config) {
+      return callback(err, config != null ? config[_this.name].url : void 0);
+    };
+  })(this));
+};
+
+Submodule.config = function(repo, treeish, callback) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.create_branch" id="apidoc.element.gift.repo.prototype.create_branch">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>create_branch
+        <span class="apidocSignatureSpan">(name, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create_branch = function (name, callback) {
+  return this.git(&#x22;branch&#x22;, {}, name, function(err, stdout, stderr) {
+    return callback(err);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.create_tag" id="apidoc.element.gift.repo.prototype.create_tag">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>create_tag
+        <span class="apidocSignatureSpan">(name, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create_tag = function (name, options, callback) {
+  var ref1;
+  if (!callback) {
+    ref1 = [callback, options], options = ref1[0], callback = ref1[1];
+  }
+  return this.git(&#x22;tag&#x22;, options, [name], callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.current_commit" id="apidoc.element.gift.repo.prototype.current_commit">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>current_commit
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">current_commit = function (callback) {
+  return this.current_commit_id((function(_this) {
+    return function(err, commit_id) {
+      if (err) {
+        return callback(err);
+      }
+      return Commit.find(_this, commit_id, callback);
+    };
+  })(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.current_commit_id" id="apidoc.element.gift.repo.prototype.current_commit_id">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>current_commit_id
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">current_commit_id = function (callback) {
+  return this.git(&#x22;rev-parse HEAD&#x22;, {}, [], (function(_this) {
+    return function(err, stdout, stderr) {
+      if (err) {
+        return callback(err);
+      }
+      return callback(null, _.first(stdout.split(&#x22;\n&#x22;)));
+    };
+  })(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      }
+      return callback(null, _.first(stdout.split(&#x22;\n&#x22;)));
+    };
+  })(this));
+};
+
+Repo.prototype.current_commit = function(callback) {
+  return this.<span class="apidocCodeKeywordSpan">current_commit_id</span>((function(_this) {
+    return function(err, commit_id) {
+      if (err) {
+        return callback(err);
+      }
+      return Commit.find(_this, commit_id, callback);
+    };
+  })(this));
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.delete_branch" id="apidoc.element.gift.repo.prototype.delete_branch">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>delete_branch
+        <span class="apidocSignatureSpan">(name, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">delete_branch = function (name, callback) {
+  return this.git(&#x22;branch&#x22;, {
+    d: true
+  }, name, function(err, stdout, stderr) {
+    return callback(err);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.delete_tag" id="apidoc.element.gift.repo.prototype.delete_tag">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>delete_tag
+        <span class="apidocSignatureSpan">(name, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">delete_tag = function (name, callback) {
+  return this.git(&#x22;tag&#x22;, {
+    d: name
+  }, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.diff" id="apidoc.element.gift.repo.prototype.diff">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>diff
+        <span class="apidocSignatureSpan">(commitA, commitB)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">diff = function (commitA, commitB) {
+  var callback, options, paths, ref1, ref2;
+  ref1 = [[], {}], paths = ref1[0], options = ref1[1];
+  if (arguments.length === 3) {
+    callback = arguments[2];
+  } else if (arguments.length === 4) {
+    callback = arguments[3];
+    if (arguments[2] instanceof Array) {
+      paths = arguments[2];
+    } else if (arguments[2] instanceof Object) {
+      options = arguments[2];
+    }
+  } else if (arguments.length === 5) {
+    ref2 = Array.prototype.slice.call(arguments, 2), paths = ref2[0], options = ref2[1], callback = ref2[2];
+  }
+  if (_.isObject(commitA)) {
+    commitA = commitA.id;
+  }
+  if (_.isObject(commitB)) {
+    commitB = commitB.id;
+  }
+  return this.git(&#x22;diff&#x22;, options, _.flatten([commitA, commitB, &#x22;--&#x22;, paths]), (function(_this) {
+    return function(err, stdout, stderr) {
+      if (err) {
+        return callback(err);
+      }
+      if (_.has(options, &#x27;raw&#x27;)) {
+        return callback(err, Diff.parse_raw(_this, stdout));
+      } else {
+        return callback(err, Diff.parse(_this, stdout));
+      }
+    };
+  })(this), &#x27;binary&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.identify" id="apidoc.element.gift.repo.prototype.identify">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>identify
+        <span class="apidocSignatureSpan">(actor, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">identify = function (actor, callback) {
+  return this.git(&#x22;config&#x22;, {}, [&#x22;user.email&#x22;, &#x22;\&#x22;&#x22; + actor.email + &#x22;\&#x22;&#x22;], (function(_this) {
+    return function(err) {
+      if (err) {
+        return callback(err);
+      }
+      return _this.git(&#x22;config&#x22;, {}, [&#x22;user.name&#x22;, &#x22;\&#x22;&#x22; + actor.name + &#x22;\&#x22;&#x22;], function(err) {
+        if (err) {
+          return callback(err);
+        }
+        return callback(null);
+      });
+    };
+  })(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.identity" id="apidoc.element.gift.repo.prototype.identity">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>identity
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">identity = function (callback) {
+  return this.git(&#x22;config&#x22;, {}, [&#x22;user.email&#x22;], (function(_this) {
+    return function(err, stdout) {
+      var email;
+      if (stdout == null) {
+        stdout = &#x27;&#x27;;
+      }
+      if (err) {
+        return callback(err);
+      }
+      email = stdout != null ? stdout.trim() : void 0;
+      return _this.git(&#x22;config&#x22;, {}, [&#x22;user.name&#x22;], function(err, stdout) {
+        var name;
+        if (stdout == null) {
+          stdout = &#x27;&#x27;;
+        }
+        if (err) {
+          return callback(err);
+        }
+        name = stdout != null ? stdout.trim() : void 0;
+        return callback(null, new Actor(name, email));
+      });
+    };
+  })(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.ls_files" id="apidoc.element.gift.repo.prototype.ls_files">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>ls_files
+        <span class="apidocSignatureSpan">(files, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ls_files = function (files, options, callback) {
+  var ref1;
+  if (arguments.length === 1) {
+    callback = files;
+    files = null;
+  } else if (arguments.length &#x3c; 3) {
+    ref1 = [files, options], options = ref1[0], callback = ref1[1];
+    files = null;
+  }
+  if (callback == null) {
+    callback = function() {};
+  }
+  if (options == null) {
+    options = {};
+  }
+  if (files == null) {
+    files = &#x27;&#x27;;
+  }
+  if (_.isString(files)) {
+    files = [files];
+  }
+  return this.git(&#x22;ls-files&#x22;, options, _.flatten([&#x27;--&#x27;, files]), (function(_this) {
+    return function(err, stdout, stderr) {
+      if (err) {
+        return callback(err);
+      }
+      return callback(null, _this.parse_lsFiles(stdout, options));
+    };
+  })(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.merge" id="apidoc.element.gift.repo.prototype.merge">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>merge
+        <span class="apidocSignatureSpan">(name, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">merge = function (name, options, callback) {
+  var ref1;
+  if (!callback) {
+    ref1 = [callback, options], options = ref1[0], callback = ref1[1];
+  }
+  return this.git(&#x22;merge&#x22;, options, name, function(err, stdout, stderr) {
+    return callback(err);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.parse_lsFiles" id="apidoc.element.gift.repo.prototype.parse_lsFiles">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>parse_lsFiles
+        <span class="apidocSignatureSpan">(text, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parse_lsFiles = function (text, options) {
+  var files, line, lines;
+  files = [];
+  if (_.has(options, &#x27;z&#x27;)) {
+    lines = text.split(&#x22;\0&#x22;);
+  } else {
+    lines = text.split(&#x22;\n&#x22;);
+  }
+  while (lines.length) {
+    line = lines.shift().split(&#x22; &#x22;);
+    files.push(line);
+    while ((lines[0] != null) &#x26;&#x26; !lines[0].length) {
+      lines.shift();
+    }
+  }
+  return files;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    files = [files];
+  }
+  return this.git(&#x22;ls-files&#x22;, options, _.flatten([&#x27;--&#x27;, files]), (function(_this) {
+    return function(err, stdout, stderr) {
+      if (err) {
+        return callback(err);
+      }
+      return callback(null, _this.<span class="apidocCodeKeywordSpan">parse_lsFiles</span>(stdout, options));
+    };
+  })(this));
+};
+
+Repo.prototype.config = function(callback) {
+  return Config(this, callback);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.pull" id="apidoc.element.gift.repo.prototype.pull">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>pull
+        <span class="apidocSignatureSpan">(remote_name, branch_name, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">pull = function (remote_name, branch_name, callback) {
+  var branch, ref1, ref2, ref3, remote;
+  if (typeof callback === &#x22;function&#x22;) {
+    ref1 = [remote_name, branch_name], remote = ref1[0], branch = ref1[1];
+  }
+  if (typeof branch_name === &#x22;function&#x22;) {
+    ref2 = [&#x22;origin&#x22;, remote_name, branch_name], remote = ref2[0], branch = ref2[1], callback = ref2[2];
+  }
+  if (typeof remote_name === &#x22;function&#x22;) {
+    ref3 = [&#x22;origin&#x22;, &#x22;master&#x22;, remote_name], remote = ref3[0], branch = ref3[1], callback = ref3[2];
+  }
+  return this.status((function(_this) {
+    return function(err, status) {
+      if (err) {
+        return callback(err);
+      }
+      return _this.git(&#x22;pull&#x22;, {}, [remote, branch], function(err, stdout, stderr) {
+        if (err) {
+          return callback(stderr);
+        }
+        return callback(null);
+      });
+    };
+  })(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.remote_add" id="apidoc.element.gift.repo.prototype.remote_add">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>remote_add
+        <span class="apidocSignatureSpan">(name, url, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">remote_add = function (name, url, callback) {
+  return this.git(&#x22;remote&#x22;, {}, [&#x22;add&#x22;, name, url], function(err, stdout, stderr) {
+    return callback(err);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.remote_add_url" id="apidoc.element.gift.repo.prototype.remote_add_url">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>remote_add_url
+        <span class="apidocSignatureSpan">(name, url, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">remote_add_url = function (name, url, callback) {
+  return this.git(&#x22;remote set-url&#x22;, {}, [&#x22;--add&#x22;, name, url], function(err, stdout, stderr) {
+    return callback(err);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.remote_delete_url" id="apidoc.element.gift.repo.prototype.remote_delete_url">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>remote_delete_url
+        <span class="apidocSignatureSpan">(name, url, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">remote_delete_url = function (name, url, callback) {
+  return this.git(&#x22;remote set-url&#x22;, {}, [&#x22;--delete&#x22;, name, url], function(err, stdout, stderr) {
+    return callback(err);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.remote_fetch" id="apidoc.element.gift.repo.prototype.remote_fetch">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>remote_fetch
+        <span class="apidocSignatureSpan">(name, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">remote_fetch = function (name, options, callback) {
+  var ref1;
+  if (!callback) {
+    ref1 = [callback, options], options = ref1[0], callback = ref1[1];
+  }
+  return this.git(&#x22;fetch&#x22;, options, name, function(err, stdout, stderr) {
+    return callback(err);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.remote_list" id="apidoc.element.gift.repo.prototype.remote_list">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>remote_list
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">remote_list = function (callback) {
+  return this.git.list_remotes(callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.remote_push" id="apidoc.element.gift.repo.prototype.remote_push">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>remote_push
+        <span class="apidocSignatureSpan">(name, branch, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">remote_push = function (name, branch, options, callback) {
+  var args;
+  if (!options &#x26;&#x26; !callback) {
+    callback = branch;
+    args = name;
+    options = {};
+  } else {
+    if (!callback) {
+      callback = options;
+      options = {};
+    }
+    args = [name, branch];
+  }
+  return this.git(&#x22;push&#x22;, options, args, function(err, stdout, stderr) {
+    return callback(err);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.remote_remove" id="apidoc.element.gift.repo.prototype.remote_remove">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>remote_remove
+        <span class="apidocSignatureSpan">(name, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">remote_remove = function (name, callback) {
+  return this.git(&#x22;remote&#x22;, {}, [&#x22;rm&#x22;, name], function(err, stdout, stderr) {
+    return callback(err);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.remote_set_url" id="apidoc.element.gift.repo.prototype.remote_set_url">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>remote_set_url
+        <span class="apidocSignatureSpan">(name, url, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">remote_set_url = function (name, url, callback) {
+  return this.git(&#x22;remote set-url&#x22;, {}, [name, url], function(err, stdout, stderr) {
+    return callback(err);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.remotes" id="apidoc.element.gift.repo.prototype.remotes">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>remotes
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">remotes = function (callback) {
+  return Ref.find_all(this, &#x22;remote&#x22;, Ref, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.remove" id="apidoc.element.gift.repo.prototype.remove">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>remove
+        <span class="apidocSignatureSpan">(files, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">remove = function (files, options, callback) {
+  var ref1;
+  if (!callback) {
+    ref1 = [callback, options], options = ref1[0], callback = ref1[1];
+  }
+  if (options == null) {
+    options = {};
+  }
+  if (_.isString(files)) {
+    files = [files];
+  }
+  return this.git(&#x22;rm&#x22;, options, files, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.reset" id="apidoc.element.gift.repo.prototype.reset">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>reset
+        <span class="apidocSignatureSpan">(treeish, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reset = function (treeish, options, callback) {
+  var ref1, ref2, ref3;
+  if (!callback) {
+    ref1 = [callback, options], options = ref1[0], callback = ref1[1];
+  }
+  if (!callback) {
+    ref2 = [callback, treeish], treeish = ref2[0], callback = ref2[1];
+  }
+  if (typeof treeish === &#x27;object&#x27;) {
+    ref3 = [options, treeish], treeish = ref3[0], options = ref3[1];
+  }
+  if (treeish == null) {
+    treeish = &#x27;HEAD&#x27;;
+  }
+  if (options == null) {
+    options = {};
+  }
+  return this.git(&#x22;reset&#x22;, options, treeish, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.revert" id="apidoc.element.gift.repo.prototype.revert">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>revert
+        <span class="apidocSignatureSpan">(sha, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">revert = function (sha, callback) {
+  return this.git(&#x22;revert&#x22;, {}, sha, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.status" id="apidoc.element.gift.repo.prototype.status">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>status
+        <span class="apidocSignatureSpan">(options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">status = function (options, callback) {
+  var ref1;
+  if (!callback) {
+    ref1 = [callback, options], options = ref1[0], callback = ref1[1];
+  }
+  return Status(this, options, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+if (typeof branch_name === &#x22;function&#x22;) {
+  ref2 = [&#x22;origin&#x22;, remote_name, branch_name], remote = ref2[0], branch = ref2[1], callback = ref2[2];
+}
+if (typeof remote_name === &#x22;function&#x22;) {
+  ref3 = [&#x22;origin&#x22;, &#x22;master&#x22;, remote_name], remote = ref3[0], branch = ref3[1], callback = ref3[2];
+}
+return this.<span class="apidocCodeKeywordSpan">status</span>((function(_this) {
+  return function(err, status) {
+    if (err) {
+      return callback(err);
+    }
+    return _this.git(&#x22;stash&#x22;, {}, [&#x22;save&#x22;, &#x22;-u&#x22;], function(err, stdout, stderr) {
+      if (err) {
+        return callback(stderr);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.sync" id="apidoc.element.gift.repo.prototype.sync">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>sync
+        <span class="apidocSignatureSpan">(remote_name, branch_name, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sync = function (remote_name, branch_name, callback) {
+  var branch, ref1, ref2, ref3, remote;
+  if (typeof callback === &#x22;function&#x22;) {
+    ref1 = [remote_name, branch_name], remote = ref1[0], branch = ref1[1];
+  }
+  if (typeof branch_name === &#x22;function&#x22;) {
+    ref2 = [&#x22;origin&#x22;, remote_name, branch_name], remote = ref2[0], branch = ref2[1], callback = ref2[2];
+  }
+  if (typeof remote_name === &#x22;function&#x22;) {
+    ref3 = [&#x22;origin&#x22;, &#x22;master&#x22;, remote_name], remote = ref3[0], branch = ref3[1], callback = ref3[2];
+  }
+  return this.status((function(_this) {
+    return function(err, status) {
+      if (err) {
+        return callback(err);
+      }
+      return _this.git(&#x22;stash&#x22;, {}, [&#x22;save&#x22;, &#x22;-u&#x22;], function(err, stdout, stderr) {
+        if (err) {
+          return callback(stderr);
+        }
+        return _this.git(&#x22;pull&#x22;, {}, [remote, branch], function(err, stdout, stderr) {
+          if (err) {
+            return callback(stderr);
+          }
+          return _this.git(&#x22;push&#x22;, {}, [remote, branch], function(err, stdout, stderr) {
+            if (err) {
+              return callback(stderr);
+            }
+            if (!(status != null ? status.clean : void 0)) {
+              return _this.git(&#x22;stash&#x22;, {}, [&#x22;pop&#x22;], function(err, stdout, stderr) {
+                if (err) {
+                  return callback(stderr);
+                }
+                return callback(null);
+              });
+            } else {
+              return callback(null);
+            }
+          });
+        });
+      });
+    };
+  })(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.tags" id="apidoc.element.gift.repo.prototype.tags">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>tags
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">tags = function (callback) {
+  return Tag.find_all(this, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.repo.prototype.tree" id="apidoc.element.gift.repo.prototype.tree">
+        function <span class="apidocSignatureSpan">gift.repo.prototype.</span>tree
+        <span class="apidocSignatureSpan">(treeish)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">tree = function (treeish) {
+  if (treeish == null) {
+    treeish = &#x22;master&#x22;;
+  }
+  return new Tree(this, treeish);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Get the current commit.
+
+The callback receives `(err, commit)`.
+
+### `Repo#tree([treeish]) =&#x3e; Tree`
+The `Tree` object for the treeish (which defaults to &#x22;master&#x22;).
+
+    repo.<span class="apidocCodeKeywordSpan">tree</span>().contents (err, children) -&#x3e;
+      for child in children
+        console.log child.name
+
+### `Repo#diff(commitA, commitB, [paths, ]callback)`
+Get the difference between the trees.
+
+The callback receives `(err, diffs)`.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gift.status" id="apidoc.module.gift.status">module gift.status</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gift.status.status" id="apidoc.element.gift.status.status">
+        function <span class="apidocSignatureSpan">gift.</span>status
+        <span class="apidocSignatureSpan">(repo, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">status = function (repo, options, callback) {
+  return repo.git(&#x22;status --porcelain&#x22;, options, function(err, stdout, stderr) {
+    var status;
+    status = new Status(repo);
+    status.parse(stdout);
+    return callback(err, status);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+if (typeof branch_name === &#x22;function&#x22;) {
+  ref2 = [&#x22;origin&#x22;, remote_name, branch_name], remote = ref2[0], branch = ref2[1], callback = ref2[2];
+}
+if (typeof remote_name === &#x22;function&#x22;) {
+  ref3 = [&#x22;origin&#x22;, &#x22;master&#x22;, remote_name], remote = ref3[0], branch = ref3[1], callback = ref3[2];
+}
+return this.<span class="apidocCodeKeywordSpan">status</span>((function(_this) {
+  return function(err, status) {
+    if (err) {
+      return callback(err);
+    }
+    return _this.git(&#x22;stash&#x22;, {}, [&#x22;save&#x22;, &#x22;-u&#x22;], function(err, stdout, stderr) {
+      if (err) {
+        return callback(stderr);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.status.Status" id="apidoc.element.gift.status.Status">
+        function <span class="apidocSignatureSpan">gift.status.</span>Status
+        <span class="apidocSignatureSpan">(repo1)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Status(repo1) {
+  this.repo = repo1;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gift.submodule" id="apidoc.module.gift.submodule">module gift.submodule</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gift.submodule.submodule" id="apidoc.element.gift.submodule.submodule">
+        function <span class="apidocSignatureSpan">gift.</span>submodule
+        <span class="apidocSignatureSpan">(repo1, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Submodule(repo1, options) {
+  this.repo = repo1;
+  this.id = options.id, this.name = options.name, this.mode = options.mode;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.submodule.config" id="apidoc.element.gift.submodule.config">
+        function <span class="apidocSignatureSpan">gift.submodule.</span>config
+        <span class="apidocSignatureSpan">(repo, treeish, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">config = function (repo, treeish, callback) {
+  return repo.tree(treeish).find(&#x22;.gitmodules&#x22;, function(err, blob) {
+    if (err) {
+      return callback(err);
+    }
+    return blob.data(function(err, data) {
+      var conf, current, line, lines, match;
+      if (err) {
+        return callback(err);
+      }
+      conf = {};
+      lines = data.split(&#x22;\n&#x22;);
+      current = null;
+      while (lines.length) {
+        line = lines.shift();
+        if (match = /^\[submodule &#x22;(.+)&#x22;\]$/.exec(line)) {
+          current = match[1];
+          conf[current] = {};
+        } else if (match = /^\s+([^\s]+)\s+[=]\s+(.+)$/.exec(line)) {
+          conf[current][match[1]] = match[2];
+        }
+      }
+      return callback(null, conf);
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var ref;
+  if (!callback) {
+    ref = [callback, treeish], treeish = ref[0], callback = ref[1];
+  }
+  if (treeish == null) {
+    treeish = &#x22;master&#x22;;
+  }
+  return Submodule.<span class="apidocCodeKeywordSpan">config</span>(this.repo, treeish, (function(_this) {
+    return function(err, config) {
+      return callback(err, config != null ? config[_this.name].url : void 0);
+    };
+  })(this));
+};
+
+Submodule.config = function(repo, treeish, callback) {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gift.submodule.prototype" id="apidoc.module.gift.submodule.prototype">module gift.submodule.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gift.submodule.prototype.url" id="apidoc.element.gift.submodule.prototype.url">
+        function <span class="apidocSignatureSpan">gift.submodule.prototype.</span>url
+        <span class="apidocSignatureSpan">(treeish, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">url = function (treeish, callback) {
+  var ref;
+  if (!callback) {
+    ref = [callback, treeish], treeish = ref[0], callback = ref[1];
+  }
+  if (treeish == null) {
+    treeish = &#x22;master&#x22;;
+  }
+  return Submodule.config(this.repo, treeish, (function(_this) {
+    return function(err, config) {
+      return callback(err, config != null ? config[_this.name].url : void 0);
+    };
+  })(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gift.tag" id="apidoc.module.gift.tag">module gift.tag</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gift.tag.tag" id="apidoc.element.gift.tag.tag">
+        function <span class="apidocSignatureSpan">gift.</span>tag
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Tag() {
+  return Tag.__super__.constructor.apply(this, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.tag.find_all" id="apidoc.element.gift.tag.find_all">
+        function <span class="apidocSignatureSpan">gift.tag.</span>find_all
+        <span class="apidocSignatureSpan">(repo, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">find_all = function (repo, callback) {
+  return Ref.find_all(repo, &#x22;tag&#x22;, Tag, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+extend(Head, superClass);
+
+function Head() {
+  return Head.__super__.constructor.apply(this, arguments);
+}
+
+Head.find_all = function(repo, callback) {
+  return Ref.<span class="apidocCodeKeywordSpan">find_all</span>(repo, &#x22;head&#x22;, Head, callback);
+};
+
+Head.current = function(repo, callback) {
+  return fs.readFile(repo.dot_git + &#x22;/HEAD&#x22;, function(err, data) {
+    var branch, m, ref;
+    if (err) {
+      return callback(err);
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gift.tag.prototype" id="apidoc.module.gift.tag.prototype">module gift.tag.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gift.tag.prototype.constructor" id="apidoc.element.gift.tag.prototype.constructor">
+        function <span class="apidocSignatureSpan">gift.tag.prototype.</span>constructor
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Tag() {
+  return Tag.__super__.constructor.apply(this, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.tag.prototype.lazy" id="apidoc.element.gift.tag.prototype.lazy">
+        function <span class="apidocSignatureSpan">gift.tag.prototype.</span>lazy
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">lazy = function (callback) {
+  if (this._lazy_data) {
+    return callback(null, this._lazy_data);
+  }
+  return this.repo.git(&#x22;cat-file&#x22;, {}, [&#x22;tag&#x22;, this.name], (function(_this) {
+    return function(err, stdout, stderr) {
+      var author, author_line, data, epoch, line, lines, m, message, ref;
+      if (err) {
+        return callback(err);
+      }
+      lines = stdout.split(&#x22;\n&#x22;);
+      data = {};
+      lines.shift();
+      lines.shift();
+      lines.shift();
+      author_line = lines.shift();
+      ref = /^.+? (.*) (\d+) .*$/.exec(author_line), m = ref[0], author = ref[1], epoch = ref[2];
+      data.tagger = Actor.from_string(author);
+      data.tag_date = new Date(epoch);
+      lines.shift();
+      message = [];
+      while (line = lines.shift()) {
+        message.push(line);
+      }
+      data.message = message.join(&#x22;\n&#x22;);
+      return callback(null, (_this._lazy_data = data));
+    };
+  })(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+Tag.find_all = function(repo, callback) {
+  return Ref.find_all(repo, &#x22;tag&#x22;, Tag, callback);
+};
+
+Tag.prototype.message = function(callback) {
+  return this.<span class="apidocCodeKeywordSpan">lazy</span>(function(err, data) {
+    if (err) {
+      return callback(err);
+    }
+    return callback(null, data.message);
+  });
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.tag.prototype.message" id="apidoc.element.gift.tag.prototype.message">
+        function <span class="apidocSignatureSpan">gift.tag.prototype.</span>message
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">message = function (callback) {
+  return this.lazy(function(err, data) {
+    if (err) {
+      return callback(err);
+    }
+    return callback(null, data.message);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.tag.prototype.tag_date" id="apidoc.element.gift.tag.prototype.tag_date">
+        function <span class="apidocSignatureSpan">gift.tag.prototype.</span>tag_date
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">tag_date = function (callback) {
+  return this.lazy(function(err, data) {
+    if (err) {
+      return callback(err);
+    }
+    return callback(null, data.tag_date);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.tag.prototype.tagger" id="apidoc.element.gift.tag.prototype.tagger">
+        function <span class="apidocSignatureSpan">gift.tag.prototype.</span>tagger
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">tagger = function (callback) {
+  return this.lazy(function(err, data) {
+    if (err) {
+      return callback(err);
+    }
+    return callback(null, data.tagger);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gift.toString" id="apidoc.module.gift.toString">module gift.toString</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gift.toString.toString" id="apidoc.element.gift.toString.toString">
+        function <span class="apidocSignatureSpan">gift.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Returns streams for you to use to get the data.
+
+Usage:
+
+    data = &#x22;&#x22;
+    [dataStream, _] = blob.dataStream()
+    dataStream.on &#x27;data&#x27;, (buf) -&#x3e;
+      data += buf.<span class="apidocCodeKeywordSpan">toString</span>()
+    .on &#x27;end&#x27;, -&#x3e;
+      callback(data)
+
+## Submodule
+### `Submodule#id`
+`String`
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gift.tree" id="apidoc.module.gift.tree">module gift.tree</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gift.tree.tree" id="apidoc.element.gift.tree.tree">
+        function <span class="apidocSignatureSpan">gift.</span>tree
+        <span class="apidocSignatureSpan">(repo, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Tree(repo, options) {
+  this.repo = repo;
+  if (_.isString(options)) {
+    this.id = options;
+  } else {
+    this.id = options.id, this.name = options.name, this.mode = options.mode;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Get the current commit.
+
+The callback receives `(err, commit)`.
+
+### `Repo#tree([treeish]) =&#x3e; Tree`
+The `Tree` object for the treeish (which defaults to &#x22;master&#x22;).
+
+    repo.<span class="apidocCodeKeywordSpan">tree</span>().contents (err, children) -&#x3e;
+      for child in children
+        console.log child.name
+
+### `Repo#diff(commitA, commitB, [paths, ]callback)`
+Get the difference between the trees.
+
+The callback receives `(err, diffs)`.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gift.tree.prototype" id="apidoc.module.gift.tree.prototype">module gift.tree.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gift.tree.prototype.blobs" id="apidoc.element.gift.tree.prototype.blobs">
+        function <span class="apidocSignatureSpan">gift.tree.prototype.</span>blobs
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">blobs = function (callback) {
+  return this.contents(function(err, children) {
+    if (err) {
+      return callback(err);
+    }
+    return callback(null, _.filter(children, function(child) {
+      return child instanceof Blob;
+    }));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.tree.prototype.content_from_string" id="apidoc.element.gift.tree.prototype.content_from_string">
+        function <span class="apidocSignatureSpan">gift.tree.prototype.</span>content_from_string
+        <span class="apidocSignatureSpan">(line)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">content_from_string = function (line) {
+  var id, mode, name, ref, type;
+  ref = line.split(/[\t ]+/, 4), mode = ref[0], type = ref[1], id = ref[2], name = ref[3];
+  switch (type) {
+    case &#x22;tree&#x22;:
+      return new Tree(this.repo, {
+        id: id,
+        name: name,
+        mode: mode
+      });
+    case &#x22;blob&#x22;:
+      return new Blob(this.repo, {
+        id: id,
+        name: name,
+        mode: mode
+      });
+    case &#x22;link&#x22;:
+      return new Blob(this.repo, {
+        id: id,
+        name: name,
+        mode: mode
+      });
+    case &#x22;commit&#x22;:
+      return new Submodule(this.repo, {
+        id: id,
+        name: name,
+        mode: mode
+      });
+    default:
+      throw new Error(&#x22;Invalid object type: &#x27;&#x22; + type + &#x22;&#x27;&#x22;);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        return callback(err);
+      }
+      _this._contents = [];
+      ref = stdout.split(&#x22;\n&#x22;);
+      for (i = 0, len = ref.length; i &#x3c; len; i++) {
+        line = ref[i];
+        if (line) {
+          _this._contents.push(_this.<span class="apidocCodeKeywordSpan">content_from_string</span>(line));
+        }
+      }
+      return callback(null, _this._contents);
+    };
+  })(this), &#x27;binary&#x27;);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.tree.prototype.contents" id="apidoc.element.gift.tree.prototype.contents">
+        function <span class="apidocSignatureSpan">gift.tree.prototype.</span>contents
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">contents = function (callback) {
+  if (this._contents) {
+    return callback(null, this._contents);
+  }
+  return this.repo.git(&#x22;ls-tree&#x22;, {}, this.id, (function(_this) {
+    return function(err, stdout, stderr) {
+      var i, len, line, ref;
+      if (err) {
+        return callback(err);
+      }
+      _this._contents = [];
+      ref = stdout.split(&#x22;\n&#x22;);
+      for (i = 0, len = ref.length; i &#x3c; len; i++) {
+        line = ref[i];
+        if (line) {
+          _this._contents.push(_this.content_from_string(line));
+        }
+      }
+      return callback(null, _this._contents);
+    };
+  })(this), &#x27;binary&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      }
+      return callback(null, _this._contents);
+    };
+  })(this), &#x27;binary&#x27;);
+};
+
+Tree.prototype.blobs = function(callback) {
+  return this.<span class="apidocCodeKeywordSpan">contents</span>(function(err, children) {
+    if (err) {
+      return callback(err);
+    }
+    return callback(null, _.filter(children, function(child) {
+      return child instanceof Blob;
+    }));
+  });
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.tree.prototype.find" id="apidoc.element.gift.tree.prototype.find">
+        function <span class="apidocSignatureSpan">gift.tree.prototype.</span>find
+        <span class="apidocSignatureSpan">(file, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">find = function (file, callback) {
+  var dir, ref, rest;
+  if (/\//.test(file)) {
+    ref = file.split(&#x22;/&#x22;, 2), dir = ref[0], rest = ref[1];
+    return this.trees((function(_this) {
+      return function(err, _trees) {
+        var i, len, tree;
+        for (i = 0, len = _trees.length; i &#x3c; len; i++) {
+          tree = _trees[i];
+          if (tree.name === dir) {
+            return tree.find(rest, callback);
+          }
+        }
+        return callback(null, null);
+      };
+    })(this));
+  } else {
+    return this.contents(function(err, children) {
+      var child, i, len;
+      if (err) {
+        return callback(err);
+      }
+      for (i = 0, len = children.length; i &#x3c; len; i++) {
+        child = children[i];
+        if (child.name === file) {
+          return callback(null, child);
+        }
+      }
+      return callback(null, null);
+    });
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+    Commit.find_commits = function(repo, ids, callback) {
+var commits, next;
+commits = [];
+next = function(i) {
+  var id;
+  if (id = ids[i]) {
+    return Commit.<span class="apidocCodeKeywordSpan">find</span>(repo, id, function(err, commit) {
+      if (err) {
+        return callback(err);
+      }
+      commits.push(commit);
+      return next(i + 1);
+    });
+  } else {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.tree.prototype.toString" id="apidoc.element.gift.tree.prototype.toString">
+        function <span class="apidocSignatureSpan">gift.tree.prototype.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+  return &#x22;#&#x3c;Tree &#x27;&#x22; + this.id + &#x22;&#x27;&#x3e;&#x22;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Returns streams for you to use to get the data.
+
+Usage:
+
+    data = &#x22;&#x22;
+    [dataStream, _] = blob.dataStream()
+    dataStream.on &#x27;data&#x27;, (buf) -&#x3e;
+      data += buf.<span class="apidocCodeKeywordSpan">toString</span>()
+    .on &#x27;end&#x27;, -&#x3e;
+      callback(data)
+
+## Submodule
+### `Submodule#id`
+`String`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gift.tree.prototype.trees" id="apidoc.element.gift.tree.prototype.trees">
+        function <span class="apidocSignatureSpan">gift.tree.prototype.</span>trees
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">trees = function (callback) {
+  return this.contents(function(err, children) {
+    if (err) {
+      return callback(err);
+    }
+    return callback(null, _.filter(children, function(child) {
+      return child instanceof Tree;
+    }));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  });
+};
+
+Tree.prototype.find = function(file, callback) {
+  var dir, ref, rest;
+  if (/\//.test(file)) {
+    ref = file.split(&#x22;/&#x22;, 2), dir = ref[0], rest = ref[1];
+    return this.<span class="apidocCodeKeywordSpan">trees</span>((function(_this) {
+      return function(err, _trees) {
+        var i, len, tree;
+        for (i = 0, len = _trees.length; i &#x3c; len; i++) {
+          tree = _trees[i];
+          if (tree.name === dir) {
+            return tree.find(rest, callback);
+          }
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
