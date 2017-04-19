@@ -173,15 +173,6 @@
 
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.gift.toString">
-            function <span class="apidocSignatureSpan">gift.</span>toString
-            <span class="apidocSignatureSpan">()</span>
-            </a>
-
-        </li>
-
-        <li>
-
             <a class="apidocElementLiA" href="#apidoc.element.gift.tree">
             function <span class="apidocSignatureSpan">gift.</span>tree
             <span class="apidocSignatureSpan">(repo, options)</span>
@@ -324,19 +315,6 @@
             <a class="apidocElementLiA" href="#apidoc.element.gift.blob.prototype.toString">
             function <span class="apidocSignatureSpan">gift.blob.prototype.</span>toString
             <span class="apidocSignatureSpan">()</span>
-            </a>
-
-        </li>
-
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.gift.clone">module gift.clone</a><ol>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.gift.clone.clone">
-            function <span class="apidocSignatureSpan">gift.</span>clone
-            <span class="apidocSignatureSpan">(repository, path, depth, branch, callback)</span>
             </a>
 
         </li>
@@ -503,19 +481,6 @@
         <li>
 
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">gift.git.</span>bin</span>
-
-        </li>
-
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.gift.init">module gift.init</a><ol>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.gift.init.init">
-            function <span class="apidocSignatureSpan">gift.</span>init
-            <span class="apidocSignatureSpan">(path, bare, callback)</span>
-            </a>
 
         </li>
 
@@ -1030,19 +995,6 @@
             <a class="apidocElementLiA" href="#apidoc.element.gift.tag.prototype.tagger">
             function <span class="apidocSignatureSpan">gift.tag.prototype.</span>tagger
             <span class="apidocSignatureSpan">(callback)</span>
-            </a>
-
-        </li>
-
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.gift.toString">module gift.toString</a><ol>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.gift.toString.toString">
-            function <span class="apidocSignatureSpan">gift.</span>toString
-            <span class="apidocSignatureSpan">()</span>
             </a>
 
         </li>
@@ -1621,36 +1573,6 @@ return this.<span class="apidocCodeKeywordSpan">status</span>((function(_this) {
 
 
     <h2>
-        <a href="#apidoc.element.gift.toString" id="apidoc.element.gift.toString">
-        function <span class="apidocSignatureSpan">gift.</span>toString
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">toString = function () {
-    return text;
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-Returns streams for you to use to get the data.
-
-Usage:
-
-    data = ""
-    [dataStream, _] = blob.dataStream()
-    dataStream.on 'data', (buf) -&gt;
-      data += buf.<span class="apidocCodeKeywordSpan">toString</span>()
-    .on 'end', -&gt;
-      callback(data)
-
-## Submodule
-### `Submodule#id`
-`String`
-...</pre></li>
-    </ul>
-
-
-
-    <h2>
         <a href="#apidoc.element.gift.tree" id="apidoc.element.gift.tree">
         function <span class="apidocSignatureSpan">gift.</span>tree
         <span class="apidocSignatureSpan">(repo, options)</span>
@@ -1940,55 +1862,6 @@ Usage:
 ### `Submodule#id`
 `String`
 ...</pre></li>
-    </ul>
-
-
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.gift.clone" id="apidoc.module.gift.clone">module gift.clone</a></h1>
-
-
-    <h2>
-        <a href="#apidoc.element.gift.clone.clone" id="apidoc.element.gift.clone.clone">
-        function <span class="apidocSignatureSpan">gift.</span>clone
-        <span class="apidocSignatureSpan">(repository, path, depth, branch, callback)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">clone = function (repository, path, depth, branch, callback) {
-  var bash;
-  if (depth == null) {
-    depth = 0;
-  }
-  if (branch == null) {
-    branch = null;
-  }
-  if (typeof branch === 'function') {
-    callback = branch;
-    branch = null;
-  }
-  if (typeof depth === 'function') {
-    callback = depth;
-    depth = 0;
-  }
-  bash = "git clone \"" + repository + "\" \"" + path + "\"";
-  if (branch !== null &amp;&amp; typeof branch === 'string') {
-    bash += " --branch \"" + branch + "\"";
-  }
-  if (depth !== 0 &amp;&amp; typeof depth === 'number') {
-    bash += " --depth \"" + depth + "\"";
-  }
-  return exec(bash, function(err, stdout, stderr) {
-    if (err) {
-      return callback(err);
-    }
-    return callback(err, new Repo(path, false, {
-      maxBuffer: Git.maxBuffer
-    }));
-  });
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -2742,44 +2615,6 @@ Blob.prototype.dataStream = function() {
     </ul>
 
 
-
-
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.gift.init" id="apidoc.module.gift.init">module gift.init</a></h1>
-
-
-    <h2>
-        <a href="#apidoc.element.gift.init.init" id="apidoc.element.gift.init.init">
-        function <span class="apidocSignatureSpan">gift.</span>init
-        <span class="apidocSignatureSpan">(path, bare, callback)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">init = function (path, bare, callback) {
-  var bash, ref;
-  if (!callback) {
-    ref = [callback, bare], bare = ref[0], callback = ref[1];
-  }
-  if (bare) {
-    bash = "git init --bare .";
-  } else {
-    bash = "git init .";
-  }
-  return exec(bash, {
-    cwd: path
-  }, function(err, stdout, stderr) {
-    if (err) {
-      return callback(err);
-    }
-    return callback(err, new Repo(path, bare, {
-      maxBuffer: Git.maxBuffer
-    }));
-  });
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
 
 
 </div>
@@ -4227,39 +4062,6 @@ Tag.prototype.message = function(callback) {
   });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.gift.toString" id="apidoc.module.gift.toString">module gift.toString</a></h1>
-
-
-    <h2>
-        <a href="#apidoc.element.gift.toString.toString" id="apidoc.element.gift.toString.toString">
-        function <span class="apidocSignatureSpan">gift.</span>toString
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-Returns streams for you to use to get the data.
-
-Usage:
-
-    data = ""
-    [dataStream, _] = blob.dataStream()
-    dataStream.on 'data', (buf) -&gt;
-      data += buf.<span class="apidocCodeKeywordSpan">toString</span>()
-    .on 'end', -&gt;
-      callback(data)
-
-## Submodule
-### `Submodule#id`
-`String`
-...</pre></li>
     </ul>
 
 
